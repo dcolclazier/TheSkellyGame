@@ -34,6 +34,15 @@ public class MultiplayerManager : NetworkLobbyManager {
 
         MenuManager.SwitchPanel(LobbyPanel);
     }
+
+   
+
+    public override GameObject OnLobbyServerCreateLobbyPlayer(NetworkConnection conn, short something)
+    {
+        var player = Instantiate(lobbyPlayerPrefab.gameObject) as GameObject;
+
+        return null;
+    }
     public void CancelClientConnection()
     {
         StopClient();
