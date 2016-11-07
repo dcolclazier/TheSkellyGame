@@ -67,6 +67,9 @@ public class LobbyPlayer : NetworkLobbyPlayer {
         if (PlayerName == "")
             CmdNameChanged("Player " + (LobbyPlayerList.Instance.PlayerListContentTransform.childCount-1));
 
+        if(PlayerReady == false)
+            CmdReadyChanged(PlayerReady);
+
         NameInput.onEndEdit.RemoveAllListeners();
         NameInput.onEndEdit.AddListener(OnNameChanged);
 
@@ -96,7 +99,8 @@ public class LobbyPlayer : NetworkLobbyPlayer {
     }
 
     public void OnMyReady(bool ready) {
-        ReadyCheck.isOn = ready;
+        PlayerReady = ready;
+        ReadyCheck.isOn = PlayerReady;
     }
 
     public void OnMyColor(Color newColor) {
@@ -107,10 +111,14 @@ public class LobbyPlayer : NetworkLobbyPlayer {
 
     public void UpdateAvailableColors() {
         var availableColors = Colors.Where(color => ColorsInUse.All(c2 => c2 != color));
+        
         ColorChoicesDropdown.options.Clear();
+        ColorChoicesDropdown.options.Add(new Dropdown.OptionData() {
+            text = PlayerColor.GetName()
+        });
         foreach (var color in availableColors) {
             ColorChoicesDropdown.options.Add(new Dropdown.OptionData() {
-                text = color.ToString()
+                text = color.GetName()
             });
         }
     }
@@ -139,6 +147,23 @@ public class LobbyPlayer : NetworkLobbyPlayer {
 
     [Command]
     public void CmdReadyChanged(bool ready) {
+        
+        PlayerReady = ready;
         ReadyCheck.isOn = ready;
+
+        if(ready) SendReadyToBeginMessage();
+        else SendNotReadyToBeginMessage();
+    }
+}
+
+public static class Extensions {
+    public static string GetName(this Color color) {
+        if (color == Color.black) return "black";
+        if (color == Color.blue) return "blue";
+        if (color == Color.white) return "white";
+        if (color == Color.cyan) return "cyan";
+        if (color == Color.magenta) return "magenta";
+        if (color == Color.green) return "green";
+        return color == Color.yellow ? "yellow" : "unknown";
     }
 }
