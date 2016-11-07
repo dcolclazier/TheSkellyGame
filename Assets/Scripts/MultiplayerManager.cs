@@ -34,6 +34,7 @@ public class MultiplayerManager : NetworkLobbyManager {
 
         MenuManager.SwitchPanel(LobbyPanel);
     }
+
     public void CancelClientConnection()
     {
         StopClient();
@@ -62,8 +63,32 @@ public class MultiplayerManager : NetworkLobbyManager {
         foreach (var p in ClientScene.localPlayers) {
             localPlayerCount += (p == null || p.playerControllerId != -1) ? 0 : 1;
         }
-
-
-
     }
+
+    public override GameObject OnLobbyServerCreateLobbyPlayer(NetworkConnection conn, short playerControllerId) {
+
+        var prefab = Instantiate(lobbyPlayerPrefab.gameObject) as GameObject;
+
+        foreach (var netLobbyPlayer in lobbySlots) {
+            var player = netLobbyPlayer as LobbyPlayer;
+            if (player != null) {
+                //update other players with whatever is needed.
+            }
+        }
+
+        return prefab;
+    }
+    public override void OnClientConnect(NetworkConnection conn)
+    {
+        base.OnClientConnect(conn);
+
+        MenuManager.InfoPanel.gameObject.SetActive(false);
+        
+        if (!NetworkServer.active) {
+            MenuManager.SwitchPanel(LobbyPanel);
+        }
+    }
+
+
+
 }

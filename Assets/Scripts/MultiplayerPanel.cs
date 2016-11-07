@@ -15,6 +15,8 @@ public class MultiplayerPanel : MonoBehaviour {
     public InputField MultiplayerGameName;
     public InputField MultiplayerHostAddress;
 
+    
+
     public void OnEnable() {
         
         NetManager.StartMatchMaker();
@@ -62,4 +64,6 @@ public class MultiplayerPanel : MonoBehaviour {
 
         MenuManager.DisplayInfoPanel("Server running...", "Cancel", NetManager.StopServer);
     }
+
+    
 }
