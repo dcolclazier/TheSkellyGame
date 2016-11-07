@@ -211,6 +211,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 224000010079796928}
   - 114: {fileID: 114000010003064062}
+  - 114: {fileID: 114000013519512580}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -849,6 +850,7 @@ MonoBehaviour:
   ShowLobbyGUI: 1
   PlayerName: 
   PlayerColor: {r: 1, g: 1, b: 1, a: 1}
+  PlayerReady: 0
   NameInput: {fileID: 114000011458710928}
   ReadyCheck: {fileID: 114000010835651490}
   ColorChoicesDropdown: {fileID: 114000014116976864}
@@ -1115,6 +1117,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000013519512580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012290764766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2de2556d62235946bfa89959805022e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000014060543346
 MonoBehaviour:
   m_ObjectHideFlags: 1
