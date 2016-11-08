@@ -1,24 +1,21 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class LobbyPanel : MonoBehaviour {
 
-    public MultiplayerManager MultiplayerManager;
-    public MenuManager MenuManager;
     public Button CancelButton;
     public Button StartGameButton;
-    public RectTransform MultiPlayerPanel;
 
     public void OnClickCancelLobby() {
         
         LobbyPlayer.ColorsInUse.Clear();
-        MultiplayerManager.CancelClientConnection();
-        MenuManager.SwitchPanel(MultiPlayerPanel);
+        MultiplayerManager.Instance.OnLobbyClientDisconnect(null);
+        PanelManager.Instance.SwitchPanel(PanelManager.Instance.MultiplayerPanel);
     }
 
     public void OnClickStart() {
-        MultiplayerManager.StartLobbyGame();
+        if(!NetworkServer.active) Debug.Log("It looks like the non-host tried to start the game?");
+        MultiplayerManager.Instance.StartLobbyGame();
     }
 }

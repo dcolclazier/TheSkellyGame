@@ -1,70 +1,68 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class MultiplayerPanel : MonoBehaviour {
 
-    public MenuManager MenuManager;
-    public MultiplayerManager NetManager = MultiplayerManager.Instance;
+    private PanelManager _panelManager = PanelManager.Instance;
+    private MultiplayerManager _multiplayerManager = MultiplayerManager.Instance;
     
-    public RectTransform MainMenuPanel;
-    public RectTransform GameLobbyPanel;
-    //public RectTransform 
+
     public PublicGameList PublicGameList;
 
     public InputField MultiplayerGameName;
     public InputField MultiplayerHostAddress;
     public Dropdown SlotCountDropdown;
-    
-    
 
     public void OnEnable() {
         
-        NetManager.StartMatchMaker();
+        //_multiplayerManager.StartMatchMaker();
+        if (_multiplayerManager == null) _multiplayerManager = FindObjectOfType<MultiplayerManager>();
+        if (_panelManager == null) _panelManager = FindObjectOfType<PanelManager>();
     }
 	
 	public void OnClickBack() {
         
         // unload all multiplayer stuff...
-        MenuManager.SwitchPanel(MainMenuPanel);
+        _panelManager.SwitchPanel(_panelManager.MainMenuPanel);
     }
 
     public void OnClickHost() {
-        NetManager.StartHost();
+        _multiplayerManager.StartHost();
     }
 
     public void OnClickConnect() {
         
-        MenuManager.SwitchPanel(GameLobbyPanel);
+        _panelManager.SwitchPanel(_panelManager.LobbyPanel);
 
-        NetManager.networkAddress = MultiplayerHostAddress.text;
-        NetManager.StartClient();
+        _multiplayerManager.networkAddress = MultiplayerHostAddress.text;
+        _multiplayerManager.StartClient();
 
-        MenuManager.DisplayInfoPanel("Connecting...", "Cancel", NetManager.CancelClientConnection);
+        _panelManager.DisplayInfoPanel("Connecting...", "Cancel", _multiplayerManager.CancelClientConnection);
 
     }
     public void OnClickCreateMpGame() {
 
-        NetManager.SetMatchHost(NetManager.matchHost,NetManager.matchPort,true);
+        _multiplayerManager.SetMatchHost(_multiplayerManager.matchHost,_multiplayerManager.matchPort,true);
 
-        NetManager.maxPlayers = SlotCountDropdown.value + 2;
-        NetManager.matchMaker.CreateMatch(MultiplayerGameName.text, (uint) NetManager.maxPlayers, true, "", "", "", 0, 0,
-            NetManager.OnMatchCreate);
+        _multiplayerManager.maxPlayers = SlotCountDropdown.value + 2;
+        _multiplayerManager.matchMaker.CreateMatch(MultiplayerGameName.text, (uint) _multiplayerManager.maxPlayers, true, "", "", "", 0, 0,
+            _multiplayerManager.OnMatchCreate);
 
-        MenuManager.CurrentlyMatchmaking = true;
-        MenuManager.DisplayInfoPanel("Creating match...", "Cancel", NetManager.CancelHostConnection);
+        _panelManager.CurrentlyMatchmaking = true;
+        _panelManager.DisplayInfoPanel("Creating match...", "Cancel", _multiplayerManager.CancelHostConnection);
      
     }
 
     public void OnClickStartServer() {
         
-        MenuManager.SwitchPanel(null);
-        NetManager.StartServer();
-        MenuManager.DisplayInfoPanel("Server running...", "Cancel", NetManager.StopServer);
+        _panelManager.SwitchPanel(null);
+        _multiplayerManager.StartServer();
+        _panelManager.DisplayInfoPanel("Server running...", "Cancel", _multiplayerManager.StopServer);
     }
 
     public void OnClickRefreshPublicGames() {
+        
+        PublicGameList.ClearGames();
         PublicGameList.RequestPage(PublicGameList.CurrentPage);
     }
 }

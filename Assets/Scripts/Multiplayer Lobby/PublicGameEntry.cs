@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.Networking.Match;
 using UnityEngine.Networking.Types;
 using UnityEngine.UI;
@@ -9,30 +8,31 @@ public class PublicGameEntry : MonoBehaviour {
     public Text AvailableSlotsText;
     public Text GameNameText;
     public Button JoinButton;
-    public MatchInfoSnapshot GameInfo { get; set; }
-    public MultiplayerManager MultiplayerManager { get; set; }
+
+    private MatchInfoSnapshot _gameInfo; 
+
+    private readonly MultiplayerManager _netManager = MultiplayerManager.Instance;
+    private readonly PanelManager _panelManager = PanelManager.Instance;
   
     public void OnJoinClicked() {
-        if (GameInfo.currentSize < GameInfo.maxSize) 
-            JoinMatch(GameInfo.networkId, MultiplayerManager);
+        if (_gameInfo.currentSize < _gameInfo.maxSize) 
+            JoinMatch(_gameInfo.networkId);
         else
             UpdateJoinButton(false);
         
     }
 
-    private void JoinMatch(NetworkID networkId, MultiplayerManager multiplayerManager) {
-        multiplayerManager.matchMaker.JoinMatch(networkId, "", "", "", 0, 0, multiplayerManager.OnMatchJoined);
-        multiplayerManager.MenuManager.DisplayInfoPanel("Connecting...", "Cancel", multiplayerManager.CancelClientConnection);
+    private void JoinMatch(NetworkID networkId) {
+        _netManager.matchMaker.JoinMatch(networkId, "", "", "", 0, 0, _netManager.OnMatchJoined);
+        _panelManager.DisplayInfoPanel("Connecting...", "Cancel", _netManager.CancelClientConnection);
     }
 
-    public void Populate(MatchInfoSnapshot gameInfo, MultiplayerManager multiplayerManager) {
-        GameInfo = gameInfo;
+    public void Populate(MatchInfoSnapshot gameInfo) {
+        _gameInfo = gameInfo;
         GameNameText.text = gameInfo.name;
         AvailableSlotsText.text = "(" + gameInfo.currentSize +
             "\\" + gameInfo.maxSize + ")";
-        UpdateJoinButton(GameInfo.maxSize > GameInfo.currentSize);
-
-        MultiplayerManager = multiplayerManager;
+        UpdateJoinButton(_gameInfo.maxSize > _gameInfo.currentSize);
     }
 
     private void UpdateJoinButton(bool available) {

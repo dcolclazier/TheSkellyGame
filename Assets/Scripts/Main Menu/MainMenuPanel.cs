@@ -1,15 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class MainMenuPanel : MonoBehaviour {
 
-    public MenuManager MenuManager;
 
-    public RectTransform MultiplayerPanel;
-    public RectTransform SettingsPanel;
-
-    
-    
 	public void OnClickSinglePlayer()
     {
 
@@ -17,11 +10,11 @@ public class MainMenuPanel : MonoBehaviour {
 
     public void OnClickMultiPlayer()
     {
-        MenuManager.SwitchPanel(MultiplayerPanel);
+        PanelManager.Instance.SwitchPanel(PanelManager.Instance.MultiplayerPanel);
     }
     public void OnClickSettings()
     {
-        MenuManager.SwitchPanel(SettingsPanel);
+        PanelManager.Instance.SwitchPanel(PanelManager.Instance.SettingsPanel);
     }
     public void OnClickExit()
     {

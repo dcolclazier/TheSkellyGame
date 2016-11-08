@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking.Match;
 using UnityEngine.UI;
@@ -8,7 +7,7 @@ using UnityEngine.UI;
 
 public class PublicGameList : MonoBehaviour
 {
-    public MultiplayerManager MultiplayerManager;
+    private MultiplayerManager _netManager = MultiplayerManager.Instance;
 
     private VerticalLayoutGroup _layout;
     public RectTransform GameListContentTransform;
@@ -40,15 +39,22 @@ public class PublicGameList : MonoBehaviour
         if (_games.Contains(gameEntry)) return;
         _games.Add(gameEntry);
 
-        gameEntry.Populate(gameInfo, MultiplayerManager);
+        gameEntry.Populate(gameInfo);
         gameEntry.transform.SetParent(GameListContentTransform, false);
 
+    }
+
+    public void ClearGames() {
+        foreach(var game in _games)
+            Destroy(game);
     }
     public void RequestPage(int page)
     {
         PreviousPage = CurrentPage;
         CurrentPage = page;
-        MultiplayerManager.matchMaker.ListMatches(page, 6, "", true, 0, 0, OnGuiMatchList);
+        if (_netManager == null) _netManager = FindObjectOfType<MultiplayerManager>();
+        if(_netManager.matchMaker == null) _netManager.StartMatchMaker();
+        _netManager.matchMaker.ListMatches(page, 6, "", true, 0, 0, OnGuiMatchList);
     }
     public void ChangePage(int dir)
     {

@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class LobbyPlayerList : MonoBehaviour {
 
 
-    private VerticalLayoutGroup _layout;
+    //private VerticalLayoutGroup _layout;
     public RectTransform PlayerListContentTransform;
 
     public static LobbyPlayerList Instance = null;
@@ -15,7 +14,7 @@ public class LobbyPlayerList : MonoBehaviour {
 
     public void OnEnable() {
         Instance = this;
-        _layout = PlayerListContentTransform.GetComponent<VerticalLayoutGroup>();
+        //_layout = PlayerListContentTransform.GetComponent<VerticalLayoutGroup>();
     }
 
     public void AddPlayer(LobbyPlayer lobbyPlayer) {

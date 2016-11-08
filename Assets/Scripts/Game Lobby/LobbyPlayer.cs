@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.Networking;
@@ -27,13 +26,17 @@ public class LobbyPlayer : NetworkLobbyPlayer {
     
     public Image DropDownImage;
 
+    private readonly MultiplayerManager _netManager = MultiplayerManager.Instance;
+    private readonly LobbyPlayerList _lobbyPlayers = LobbyPlayerList.Instance;
+    private readonly PanelManager _panelManager = PanelManager.Instance;
+
     public override void OnClientEnterLobby() {
         base.OnClientEnterLobby();
 
-        if(MultiplayerManager.Instance!=null)
-            MultiplayerManager.Instance.OnPlayerCountChange(1); // gross
+        if(_netManager!= null)
+            _netManager.OnPlayerCountChange(1); // gross
 
-        LobbyPlayerList.Instance.AddPlayer(this);
+        _lobbyPlayers.AddPlayer(this);
 
         SetupOtherPlayer();
 
@@ -74,7 +77,7 @@ public class LobbyPlayer : NetworkLobbyPlayer {
         OnColorChanged(Colors.IndexOf(PlayerColor));
 
         if (PlayerName == "")
-            CmdNameChanged("Player " + (LobbyPlayerList.Instance.PlayerListContentTransform.childCount-1));
+            CmdNameChanged("Player " + (_lobbyPlayers.PlayerListContentTransform.childCount-1));
 
         OnMyReady(PlayerReady);
 
@@ -137,7 +140,6 @@ public class LobbyPlayer : NetworkLobbyPlayer {
 
     public void UpdateAvailableColors() {
 
-        //_availableColors = Colors.ToList();
         _availableColors = Colors.Where(c => ColorsInUse.All(c2 => c2 != c)).ToList();
         ColorChoicesDropdown.options.Clear();
         foreach (var color in Colors) {
@@ -171,8 +173,8 @@ public class LobbyPlayer : NetworkLobbyPlayer {
     [ClientRpc]
     public void RpcUpdateCountdown(int countdown)
     {
-        MultiplayerManager.Instance.CountdownPanel.UIText.text = "Match Starting in " + countdown;
-        MultiplayerManager.Instance.CountdownPanel.gameObject.SetActive(countdown != 0);
+        _panelManager.CountdownPanel.UIText.text = "Match Starting in " + countdown;
+        _panelManager.CountdownPanel.gameObject.SetActive(countdown != 0);
     }
 }
 
