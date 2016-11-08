@@ -8,14 +8,11 @@ public class MultiplayerManager : NetworkLobbyManager {
 
     public static MultiplayerManager Instance { get; private set; }
 
-    public RectTransform mainMenuPanel;
-    public RectTransform multiplayerPanel;
+    public RectTransform MainMenuPanel;
+    public RectTransform MultiplayerPanel;
     public RectTransform LobbyPanel;
-
     public MenuManager MenuManager;
-
     public LobbyCountdownPanel CountdownPanel;
-    public string Testing;
 
     private int _playerCount = 0;
     private float _prematchCountdown = 5;
@@ -23,8 +20,6 @@ public class MultiplayerManager : NetworkLobbyManager {
     // Use this for initialization
 	void Start () {
 	    Instance = this;
-	    //currentActivePanel = mainMenuPanel;
-
         DontDestroyOnLoad(gameObject);
 	}
 
@@ -43,7 +38,10 @@ public class MultiplayerManager : NetworkLobbyManager {
     public void CancelClientConnection()
     {
         StopClient();
-        
+        if (MenuManager.CurrentlyMatchmaking)
+        {
+            StopMatchMaker();
+        }
     }
 
     public void CancelHostConnection() {
@@ -57,10 +55,10 @@ public class MultiplayerManager : NetworkLobbyManager {
     public void CancelServerConnection()
     {
         StopServer();
-        //if (MenuManager.CurrentlyMatchmaking)
-        //{
-        //    StopMatchMaker();
-        //}
+        if (MenuManager.CurrentlyMatchmaking)
+        {
+            StopMatchMaker();
+        }
     }
 
     public void OnPlayerCountChange(int i) {
@@ -74,11 +72,22 @@ public class MultiplayerManager : NetworkLobbyManager {
             localPlayerCount += (p == null || p.playerControllerId != -1) ? 0 : 1;
         }
     }
-    public override void OnLobbyServerPlayersReady()
-    {
-        var allready = lobbySlots.Where(player => player != null).Aggregate(true, (current, player) => current & player.readyToBegin);
 
-        if (allready) StartCoroutine(ServerCountdownCoroutine());
+    
+    public override void OnLobbyServerPlayersReady() {}
+
+    public void StartLobbyGame() {
+        var allReady = true;
+        foreach (var player in lobbySlots) {
+            if (player == null) continue;
+            if (player.readyToBegin == false) {
+                allReady = false;
+                Debug.Log("Found a player who isn't ready " + player.name);
+            }
+            else Debug.Log("Found ready player.");
+        }
+
+        if (allReady) StartCoroutine(ServerCountdownCoroutine());
     }
     public IEnumerator ServerCountdownCoroutine()
     {
@@ -118,7 +127,7 @@ public class MultiplayerManager : NetworkLobbyManager {
         foreach (var netLobbyPlayer in lobbySlots) {
             var player = netLobbyPlayer as LobbyPlayer;
             if (player != null) {
-                //update other players with whatever is needed.
+                player.PlayerReady = false;
             }
         }
 

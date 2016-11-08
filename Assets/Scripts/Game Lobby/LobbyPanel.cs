@@ -18,7 +18,7 @@ public class LobbyPanel : MonoBehaviour {
         MenuManager.SwitchPanel(MultiPlayerPanel);
     }
 
-    public void OnClickReady() {
-        MultiplayerManager.OnLobbyServerPlayersReady();
+    public void OnClickStart() {
+        MultiplayerManager.StartLobbyGame();
     }
 }

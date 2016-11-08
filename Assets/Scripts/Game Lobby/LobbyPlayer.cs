@@ -63,6 +63,7 @@ public class LobbyPlayer : NetworkLobbyPlayer {
 
         //must choose color?
         ReadyCheck.isOn = false;
+        PlayerReady = false;
 
         UpdateAvailableColors();
         Debug.Log("First available color: " + _availableColors.First().GetName());
@@ -75,8 +76,7 @@ public class LobbyPlayer : NetworkLobbyPlayer {
         if (PlayerName == "")
             CmdNameChanged("Player " + (LobbyPlayerList.Instance.PlayerListContentTransform.childCount-1));
 
-        if(PlayerReady == false)
-            CmdReadyChanged(PlayerReady);
+        OnMyReady(PlayerReady);
 
         NameInput.onEndEdit.RemoveAllListeners();
         NameInput.onEndEdit.AddListener(OnNameChanged);
@@ -105,10 +105,16 @@ public class LobbyPlayer : NetworkLobbyPlayer {
         PlayerName = newName;
         NameInput.text = PlayerName;
     }
+    
 
     public void OnMyReady(bool ready) {
+
         PlayerReady = ready;
         ReadyCheck.isOn = PlayerReady;
+
+        if (PlayerReady) SendReadyToBeginMessage();
+        else SendNotReadyToBeginMessage();
+
     }
 
     public void OnMyColor(Color newColor) {
@@ -158,14 +164,8 @@ public class LobbyPlayer : NetworkLobbyPlayer {
     }
 
     [Command]
-    public void CmdReadyChanged(bool ready) {
-        
+    public void CmdReadyChanged(bool ready) {       
         PlayerReady = ready;
-        ReadyCheck.isOn = ready;
-        readyToBegin = PlayerReady;
-
-        if(PlayerReady) SendReadyToBeginMessage();
-        else SendNotReadyToBeginMessage();
     }
 
     [ClientRpc]

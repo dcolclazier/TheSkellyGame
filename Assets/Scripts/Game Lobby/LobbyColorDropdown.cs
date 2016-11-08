@@ -12,7 +12,7 @@ public class LobbyColorDropdown : MonoBehaviour {
 
         if (LobbyPlayer.ColorsInUse.Any(c => c.GetName() == itemText.text)) {
             GetComponent<Toggle>().interactable = false;
-            itemText.color = Color.gray;
+            itemText.color = Color.green;
         }
         //bool inUse = LobbyPlayer.ColorsInUse.All(c => c.GetName() != itemText.text);
         //GetComponent<Toggle>().interactable = inUse;
