@@ -162,9 +162,17 @@ public class LobbyPlayer : NetworkLobbyPlayer {
         
         PlayerReady = ready;
         ReadyCheck.isOn = ready;
+        readyToBegin = PlayerReady;
 
         if(PlayerReady) SendReadyToBeginMessage();
         else SendNotReadyToBeginMessage();
+    }
+
+    [ClientRpc]
+    public void RpcUpdateCountdown(int countdown)
+    {
+        MultiplayerManager.Instance.CountdownPanel.UIText.text = "Match Starting in " + countdown;
+        MultiplayerManager.Instance.CountdownPanel.gameObject.SetActive(countdown != 0);
     }
 }
 

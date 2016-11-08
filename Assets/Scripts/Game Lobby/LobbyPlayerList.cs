@@ -17,15 +17,6 @@ public class LobbyPlayerList : MonoBehaviour {
         Instance = this;
         _layout = PlayerListContentTransform.GetComponent<VerticalLayoutGroup>();
     }
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     public void AddPlayer(LobbyPlayer lobbyPlayer) {
 

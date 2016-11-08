@@ -7,6 +7,8 @@ public class MainMenuPanel : MonoBehaviour {
 
     public RectTransform MultiplayerPanel;
     public RectTransform SettingsPanel;
+
+    
     
 	public void OnClickSinglePlayer()
     {

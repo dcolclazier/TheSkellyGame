@@ -11,10 +11,12 @@ public class MultiplayerPanel : MonoBehaviour {
     public RectTransform MainMenuPanel;
     public RectTransform GameLobbyPanel;
     //public RectTransform 
+    public PublicGameList PublicGameList;
 
     public InputField MultiplayerGameName;
     public InputField MultiplayerHostAddress;
-
+    public Dropdown SlotCountDropdown;
+    
     
 
     public void OnEnable() {
@@ -25,7 +27,6 @@ public class MultiplayerPanel : MonoBehaviour {
 	public void OnClickBack() {
         
         // unload all multiplayer stuff...
-
         MenuManager.SwitchPanel(MainMenuPanel);
     }
 
@@ -46,8 +47,8 @@ public class MultiplayerPanel : MonoBehaviour {
     public void OnClickCreateMpGame() {
 
         NetManager.SetMatchHost(NetManager.matchHost,NetManager.matchPort,true);
-        //NetManager.StartMatchMaker();
 
+        NetManager.maxPlayers = SlotCountDropdown.value + 2;
         NetManager.matchMaker.CreateMatch(MultiplayerGameName.text, (uint) NetManager.maxPlayers, true, "", "", "", 0, 0,
             NetManager.OnMatchCreate);
 
@@ -59,11 +60,11 @@ public class MultiplayerPanel : MonoBehaviour {
     public void OnClickStartServer() {
         
         MenuManager.SwitchPanel(null);
-
         NetManager.StartServer();
-
         MenuManager.DisplayInfoPanel("Server running...", "Cancel", NetManager.StopServer);
     }
 
-    
+    public void OnClickRefreshPublicGames() {
+        PublicGameList.RequestPage(PublicGameList.CurrentPage);
+    }
 }
