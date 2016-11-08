@@ -16,7 +16,7 @@ public class LobbyPlayerList : MonoBehaviour {
         Instance = this;
         //_layout = PlayerListContentTransform.GetComponent<VerticalLayoutGroup>();
     }
-
+    
     public void AddPlayer(LobbyPlayer lobbyPlayer) {
 
         if (_players.Contains(lobbyPlayer)) return;

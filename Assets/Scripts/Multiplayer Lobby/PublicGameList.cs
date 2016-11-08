@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.Networking.Match;
 using UnityEngine.UI;
 
@@ -45,8 +46,18 @@ public class PublicGameList : MonoBehaviour
     }
 
     public void ClearGames() {
-        foreach(var game in _games)
-            Destroy(game);
+        Debug.Log("Clearing games");
+        //foreach (var game in GameListContentTransform.GetComponentsInChildren<PublicGameEntry>())
+        //{
+        //    Debug.Log("Destroying game : " + game.GameNameText);
+        //    Destroy(game.gameObject);
+        //}
+        foreach (var game in _games.ToList())
+        {
+            Debug.Log("Destroying game : " + game.GameNameText);
+            _games.Remove(game);
+            Destroy(game.gameObject);
+        }
     }
     public void RequestPage(int page)
     {

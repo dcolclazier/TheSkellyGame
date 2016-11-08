@@ -202,7 +202,7 @@ RectTransform:
   - {fileID: 1596375171}
   - {fileID: 1658404591}
   m_Father: {fileID: 1074247599}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.000030517578, y: 0}
@@ -488,7 +488,7 @@ RectTransform:
   - {fileID: 995250151}
   - {fileID: 1809599938}
   m_Father: {fileID: 1074247599}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -540,7 +540,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CancelButton: {fileID: 1809599939}
   StartGameButton: {fileID: 995250152}
-  MultiPlayerPanel: {fileID: 87195275}
 --- !u!1 &147128606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,7 +1052,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!1 &217887702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1775,6 +1774,7 @@ MonoBehaviour:
   MultiplayerPanel: {fileID: 87195275}
   SettingsPanel: {fileID: 1796568135}
   LobbyPanel: {fileID: 123531837}
+  TitlePanel: {fileID: 1074247599}
   CountdownPanel: {fileID: 1773977608}
   InfoPanel: {fileID: 1131530974}
 --- !u!4 &385786337
@@ -1784,11 +1784,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 385786335}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -441.5, y: -331, z: -10}
+  m_LocalPosition: {x: -26, y: -44.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 1074247599}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!1 &406320902
 GameObject:
@@ -3750,7 +3750,7 @@ RectTransform:
   - {fileID: 1743013095}
   - {fileID: 638694344}
   m_Father: {fileID: 1074247599}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.00004887581, y: -100}
@@ -3823,11 +3823,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 870137193}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -441.5, y: -331, z: -10}
+  m_LocalPosition: {x: -26, y: -44.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 1074247599}
+  m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!114 &870137195
 MonoBehaviour:
@@ -4826,8 +4826,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 385786337}
-  - {fileID: 870137194}
   - {fileID: 1654913552}
   - {fileID: 860925915}
   - {fileID: 87195275}
@@ -4836,7 +4834,7 @@ RectTransform:
   - {fileID: 1131530973}
   - {fileID: 1773977607}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4885,7 +4883,7 @@ RectTransform:
   - {fileID: 238614061}
   - {fileID: 772124293}
   m_Father: {fileID: 1074247599}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -441.99997, y: -331}
@@ -4999,7 +4997,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!1 &1145045780
 GameObject:
   m_ObjectHideFlags: 0
@@ -6665,7 +6663,7 @@ RectTransform:
   m_Children:
   - {fileID: 1851194011}
   m_Father: {fileID: 1074247599}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.000091552734, y: 0}
@@ -7081,7 +7079,7 @@ RectTransform:
   m_Children:
   - {fileID: 1475715372}
   m_Father: {fileID: 1074247599}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 4, y: 14}
@@ -7161,7 +7159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1074247599}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
