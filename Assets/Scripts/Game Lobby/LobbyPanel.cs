@@ -10,7 +10,14 @@ public class LobbyPanel : MonoBehaviour {
     public void OnClickCancelLobby() {
         
         LobbyPlayer.ColorsInUse.Clear();
-        MultiplayerManager.Instance.OnLobbyClientDisconnect(null);
+        if (NetworkServer.active)
+        {
+
+        }
+        else
+        {
+            
+        }
         PanelManager.Instance.SwitchPanel(PanelManager.Instance.MultiplayerPanel);
     }
 

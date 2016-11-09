@@ -22,6 +22,8 @@ public class MultiplayerManager : NetworkLobbyManager {
     private int _playerCount = 0;
     private float _prematchCountdown = 5;
 
+    private PanelManager _panelManager = PanelManager.Instance;
+
     // Use this for initialization
 	void Start () {
 	    Instance = this;
@@ -41,6 +43,8 @@ public class MultiplayerManager : NetworkLobbyManager {
             matchMaker.DestroyMatch(CurrentMatchInfo.networkId, 0, OnDestroyMatch);
             base.OnLobbyClientDisconnect(conn);
         }
+        StopHost();
+        _panelManager.SwitchPanel(_panelManager.MultiplayerPanel);
         //NetworkMatch.DropConnection(CurrentMatchInfo.networkId,)
 
 

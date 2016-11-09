@@ -47,11 +47,7 @@ public class PublicGameList : MonoBehaviour
 
     public void ClearGames() {
         Debug.Log("Clearing games");
-        //foreach (var game in GameListContentTransform.GetComponentsInChildren<PublicGameEntry>())
-        //{
-        //    Debug.Log("Destroying game : " + game.GameNameText);
-        //    Destroy(game.gameObject);
-        //}
+       
         foreach (var game in _games.ToList())
         {
             Debug.Log("Destroying game : " + game.GameNameText);
