@@ -6,22 +6,11 @@ using UnityEngine.UI;
 
 public class MultiplayerManager : NetworkLobbyManager {
 
-    //private static MultiplayerManager _instance;
-    //private static readonly object _lock = new object();
-    //public static MultiplayerManager Instance {
-    //    get {
-    //        lock (_lock) {
-    //            return _instance;
-    //        }
-    //    }
-    //    private set { _instance = value; }
-    //}
-    //protected MultiplayerManager () { }
+    
     public Button StartLobbyGameBtn;
     public bool CurrentlyInGame { get; set; }
     public bool CurrentlyMatchmaking { get; set; }
-    private int _playerCount = 0;
-    private float _prematchCountdown = 5;
+    private const float PrematchCountdown = 5;
 
     private RectTransform _currentPanel;
 
@@ -49,15 +38,6 @@ public class MultiplayerManager : NetworkLobbyManager {
 
     public override void OnLobbyClientDisconnect(NetworkConnection conn) {
 
-        //if (NetworkServer.active) {
-        //    Debug.Log("Destroying Host!");
-        //    DestroyCurrentMatch(true);
-            
-        //    base.OnLobbyClientDisconnect(conn);
-        //}
-        //StopHost();
-        //_panelManager.SwitchPanel(_panelManager.MultiplayerPanel);
-        //NetworkMatch.DropConnection(CurrentMatchInfo.networkId,)
         LeaveLobby();
 
     }
@@ -81,24 +61,11 @@ public class MultiplayerManager : NetworkLobbyManager {
     }
 
     public void CancelHostConnection() {
-        //StopHost();
-        //if (_panelManager.CurrentlyMatchmaking)
-        //    StopMatchMaker();
         LeaveLobby();
     }
 
-
-
     public void OnPlayerCountChange(int i) {
-        ////why is this here?
-        ////increment server player count
-        //_playerCount += i;
-
-        ////count how many local players were added initially
-        //var localPlayerCount = 0;
-        //foreach (var p in ClientScene.localPlayers) {
-        //    localPlayerCount += (p == null || p.playerControllerId != -1) ? 0 : 1;
-        //}
+        
     }
 
     public override void OnLobbyClientEnter() {
@@ -124,7 +91,7 @@ public class MultiplayerManager : NetworkLobbyManager {
     }
     public IEnumerator ServerCountdownCoroutine()
     {
-        float remainingTime = _prematchCountdown;
+        float remainingTime = PrematchCountdown;
         int floorTime = Mathf.FloorToInt(remainingTime);
 
         while (remainingTime > 0)
@@ -191,12 +158,9 @@ public class MultiplayerManager : NetworkLobbyManager {
     }
     public void SwitchPanel(RectTransform activePanel)
     {
-
-        var old = _currentPanel;
         if (_currentPanel != null) _currentPanel.gameObject.SetActive(false);
         if (activePanel != null) activePanel.gameObject.SetActive(true);
         _currentPanel = activePanel;
-
     }
 
     public void DisplayInfoPanel(string infoText, string buttonText, UnityEngine.Events.UnityAction cancelAction)
