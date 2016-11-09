@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 
 
-public class PublicGameList : MonoBehaviour
-{
-    private MultiplayerManager _netManager = MultiplayerManager.Instance;
+public class PublicGameList : MonoBehaviour {
 
-    private VerticalLayoutGroup _layout;
+    public MultiplayerManager NetManager;
+
+    //private VerticalLayoutGroup _layout;
     public RectTransform GameListContentTransform;
 
     public GameObject PublicGameEntry;
@@ -30,7 +30,7 @@ public class PublicGameList : MonoBehaviour
     void Start()
     {
         Instance = this;
-        _layout = GameListContentTransform.GetComponent<VerticalLayoutGroup>();
+        //_layout = GameListContentTransform.GetComponent<VerticalLayoutGroup>();
 
     }
 
@@ -59,9 +59,9 @@ public class PublicGameList : MonoBehaviour
     {
         PreviousPage = CurrentPage;
         CurrentPage = page;
-        if (_netManager == null) _netManager = FindObjectOfType<MultiplayerManager>();
-        if(_netManager.matchMaker == null) _netManager.StartMatchMaker();
-        _netManager.matchMaker.ListMatches(page, 6, "", true, 0, 0, OnGuiMatchList);
+        if (NetManager == null) NetManager = FindObjectOfType<MultiplayerManager>();
+        if(NetManager.matchMaker == null) NetManager.StartMatchMaker();
+        NetManager.matchMaker.ListMatches(page, 6, "", true, 0, 0, OnGuiMatchList);
     }
     public void ChangePage(int dir)
     {

@@ -2,7 +2,7 @@
 
 public class MainMenuPanel : MonoBehaviour {
 
-
+    public MultiplayerManager NetManager;
 	public void OnClickSinglePlayer()
     {
 
@@ -10,11 +10,11 @@ public class MainMenuPanel : MonoBehaviour {
 
     public void OnClickMultiPlayer()
     {
-        PanelManager.Instance.SwitchPanel(PanelManager.Instance.MultiplayerPanel);
+        NetManager.SwitchPanel(NetManager.MultiplayerPanel);
     }
     public void OnClickSettings()
     {
-        PanelManager.Instance.SwitchPanel(PanelManager.Instance.SettingsPanel);
+        NetManager.SwitchPanel(NetManager.SettingsPanel);
     }
     public void OnClickExit()
     {

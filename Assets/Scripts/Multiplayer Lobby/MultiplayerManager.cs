@@ -6,47 +6,59 @@ using UnityEngine.UI;
 
 public class MultiplayerManager : NetworkLobbyManager {
 
-    private static MultiplayerManager _instance;
-    private static readonly object _lock = new object();
-    public static MultiplayerManager Instance {
-        get {
-            lock (_lock) {
-                return _instance;
-            }
-        }
-        private set { _instance = value; }
-    }
-    protected MultiplayerManager () { }
+    //private static MultiplayerManager _instance;
+    //private static readonly object _lock = new object();
+    //public static MultiplayerManager Instance {
+    //    get {
+    //        lock (_lock) {
+    //            return _instance;
+    //        }
+    //    }
+    //    private set { _instance = value; }
+    //}
+    //protected MultiplayerManager () { }
     public Button StartLobbyGameBtn;
-
+    public bool CurrentlyInGame { get; set; }
+    public bool CurrentlyMatchmaking { get; set; }
     private int _playerCount = 0;
     private float _prematchCountdown = 5;
 
-    private PanelManager _panelManager = PanelManager.Instance;
+    private RectTransform _currentPanel;
 
+    public static MultiplayerManager Instance;
+
+    public RectTransform MainMenuPanel;
+    public RectTransform MultiplayerPanel;
+    public RectTransform SettingsPanel;
+    public RectTransform LobbyPanel;
+    public RectTransform TitlePanel;
+    public LobbyCountdownPanel CountdownPanel;
+    public InfoPanel InfoPanel;
     // Use this for initialization
-	void Start () {
+    void Start () {
 	    Instance = this;
         DontDestroyOnLoad(gameObject);
+        SwitchPanel(MainMenuPanel);
 	}
 
     public override void OnLobbyClientSceneChanged(NetworkConnection connection) {
 
-        PanelManager.Instance.Deactivate();
+        Deactivate();
 
     }
 
     public override void OnLobbyClientDisconnect(NetworkConnection conn) {
 
-        if (NetworkServer.active) {
-            Debug.Log("Destroying Host!");
-            matchMaker.DestroyMatch(CurrentMatchInfo.networkId, 0, OnDestroyMatch);
-            base.OnLobbyClientDisconnect(conn);
-        }
-        StopHost();
-        _panelManager.SwitchPanel(_panelManager.MultiplayerPanel);
+        //if (NetworkServer.active) {
+        //    Debug.Log("Destroying Host!");
+        //    DestroyCurrentMatch(true);
+            
+        //    base.OnLobbyClientDisconnect(conn);
+        //}
+        //StopHost();
+        //_panelManager.SwitchPanel(_panelManager.MultiplayerPanel);
         //NetworkMatch.DropConnection(CurrentMatchInfo.networkId,)
-
+        LeaveLobby();
 
     }
 
@@ -61,30 +73,21 @@ public class MultiplayerManager : NetworkLobbyManager {
     public override void OnStartHost() {
         base.OnStartHost();
 
-        PanelManager.Instance.SwitchPanel(PanelManager.Instance.LobbyPanel);
+        SwitchPanel(LobbyPanel);
     }
 
-    public void CancelClientConnection()
-    {
-        if (NetworkServer.active) {
-            //StopServer();
-        }
-        //if (PanelManager.Instance.CurrentlyMatchmaking)
-        //    StopMatchMaker();
+    public void CancelClientConnection() {
+        LeaveLobby();
     }
 
     public void CancelHostConnection() {
-        StopHost();
-        if (PanelManager.Instance.CurrentlyMatchmaking)
-            StopMatchMaker();
+        //StopHost();
+        //if (_panelManager.CurrentlyMatchmaking)
+        //    StopMatchMaker();
+        LeaveLobby();
     }
 
-    public void CancelServerConnection()
-    {
-        StopServer();
-        if (PanelManager.Instance.CurrentlyMatchmaking)
-            StopMatchMaker();
-    }
+
 
     public void OnPlayerCountChange(int i) {
         ////why is this here?
@@ -166,12 +169,50 @@ public class MultiplayerManager : NetworkLobbyManager {
     {
         base.OnClientConnect(conn);
 
-        PanelManager.Instance.InfoPanel.gameObject.SetActive(false);
+        InfoPanel.gameObject.SetActive(false);
         
         if (!NetworkServer.active) {
-            PanelManager.Instance.SwitchPanel(PanelManager.Instance.LobbyPanel);
+            SwitchPanel(LobbyPanel);
         }
     }
 
+    //leave lobby and return to multiplayer screen
+    public void LeaveLobby() {
 
+        if (CurrentlyMatchmaking) {
+            matchMaker.DestroyMatch(CurrentMatchInfo.networkId, 0, OnDestroyMatch);
+            StopHost();
+            //_disconnectServer = true;
+        }
+        else StopHost();
+
+        SwitchPanel(MultiplayerPanel);
+
+    }
+    public void SwitchPanel(RectTransform activePanel)
+    {
+
+        var old = _currentPanel;
+        if (_currentPanel != null) _currentPanel.gameObject.SetActive(false);
+        if (activePanel != null) activePanel.gameObject.SetActive(true);
+        _currentPanel = activePanel;
+
+    }
+
+    public void DisplayInfoPanel(string infoText, string buttonText, UnityEngine.Events.UnityAction cancelAction)
+    {
+        InfoPanel.Display(infoText, buttonText, cancelAction);
+    }
+
+    public void Deactivate()
+    {
+        if (_currentPanel != null) _currentPanel.gameObject.SetActive(false);
+
+        MainMenuPanel.gameObject.SetActive(false);
+        MultiplayerPanel.gameObject.SetActive(false);
+        SettingsPanel.gameObject.SetActive(false);
+        LobbyPanel.gameObject.SetActive(false);
+        CountdownPanel.gameObject.SetActive(false);
+        TitlePanel.gameObject.SetActive(false);
+    }
 }

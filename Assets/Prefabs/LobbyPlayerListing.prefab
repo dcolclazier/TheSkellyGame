@@ -855,6 +855,8 @@ MonoBehaviour:
   ReadyCheck: {fileID: 114000010835651490}
   ColorChoicesDropdown: {fileID: 114000014116976864}
   DropDownImage: {fileID: 114000012948601786}
+  NetManager: {fileID: 0}
+  PanelManager: {fileID: 0}
 --- !u!114 &114000012276408094
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -26,15 +26,13 @@ public class LobbyPlayer : NetworkLobbyPlayer {
     
     public Image DropDownImage;
 
-    private readonly MultiplayerManager _netManager = MultiplayerManager.Instance;
     private readonly LobbyPlayerList _lobbyPlayers = LobbyPlayerList.Instance;
-    private readonly PanelManager _panelManager = PanelManager.Instance;
 
     public override void OnClientEnterLobby() {
         base.OnClientEnterLobby();
 
-        if(_netManager!= null)
-            _netManager.OnPlayerCountChange(1); // gross
+        if(MultiplayerManager.Instance!= null)
+            MultiplayerManager.Instance.OnPlayerCountChange(1); // gross
 
         _lobbyPlayers.AddPlayer(this);
 
@@ -173,8 +171,8 @@ public class LobbyPlayer : NetworkLobbyPlayer {
     [ClientRpc]
     public void RpcUpdateCountdown(int countdown)
     {
-        _panelManager.CountdownPanel.UIText.text = "Match Starting in " + countdown;
-        _panelManager.CountdownPanel.gameObject.SetActive(countdown != 0);
+        MultiplayerManager.Instance.CountdownPanel.UIText.text = "Match Starting in " + countdown;
+        MultiplayerManager.Instance.CountdownPanel.gameObject.SetActive(countdown != 0);
     }
 }
 

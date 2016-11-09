@@ -11,8 +11,6 @@ public class PublicGameEntry : MonoBehaviour {
 
     private MatchInfoSnapshot _gameInfo; 
 
-    private readonly MultiplayerManager _netManager = MultiplayerManager.Instance;
-    private readonly PanelManager _panelManager = PanelManager.Instance;
   
     public void OnJoinClicked() {
         if (_gameInfo.currentSize < _gameInfo.maxSize) 
@@ -23,8 +21,8 @@ public class PublicGameEntry : MonoBehaviour {
     }
 
     private void JoinMatch(NetworkID networkId) {
-        _netManager.matchMaker.JoinMatch(networkId, "", "", "", 0, 0, _netManager.OnMatchJoined);
-        _panelManager.DisplayInfoPanel("Connecting...", "Cancel", _netManager.CancelClientConnection);
+        MultiplayerManager.Instance.matchMaker.JoinMatch(networkId, "", "", "", 0, 0, MultiplayerManager.Instance.OnMatchJoined);
+        MultiplayerManager.Instance.DisplayInfoPanel("Connecting...", "Cancel", MultiplayerManager.Instance.CancelClientConnection);
     }
 
     public void Populate(MatchInfoSnapshot gameInfo) {
