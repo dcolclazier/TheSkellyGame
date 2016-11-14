@@ -89,6 +89,8 @@ public class LobbyPlayer : NetworkLobbyPlayer {
         //MultiplayerManager.Instance.UpdateAvailableColors(this, );
         //OnMyColor(MultiplayerManager.Instance.FirstAvailablePlayerColor());
 
+        NameInput.Select();
+        
         NameInput.onEndEdit.RemoveAllListeners();
         NameInput.onEndEdit.AddListener(OnNameChanged);
 

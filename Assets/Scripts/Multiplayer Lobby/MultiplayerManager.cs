@@ -64,7 +64,7 @@ public class MultiplayerManager : NetworkLobbyManager {
         SwitchPanel(LobbyPanel);
     }
     public void CancelClientConnection() {
-        LeaveLobby();
+        StopClient();
     }
 
     public void CancelHostConnection() {
@@ -201,7 +201,8 @@ public class MultiplayerManager : NetworkLobbyManager {
             StopHost();
             //_disconnectServer = true;
         }
-        else StopHost();
+        else if(NetworkServer.active) StopHost();
+        else StopClient();
 
         SwitchPanel(MultiplayerPanel);
 

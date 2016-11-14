@@ -7,9 +7,8 @@ public class LobbyPanel : MonoBehaviour {
     public Button CancelButton;
     public Button StartGameButton;
     public MultiplayerManager NetManager;
-    //void Start() {
-    //    DontDestroyOnLoad(gameObject);
-    //}
+    
+
     public void OnClickCancelLobby() {
 
         NetManager.LeaveLobby();

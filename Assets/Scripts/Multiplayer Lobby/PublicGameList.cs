@@ -85,10 +85,7 @@ public class PublicGameList : MonoBehaviour {
         }
 
         NoGamesFound.SetActive(false);
-        foreach (var game in _games)
-        {
-            Destroy(game);
-        }
+        ClearGames();
         foreach (var gameInfo in publicGameList)
         {
             var game = Instantiate(PublicGameEntry);
