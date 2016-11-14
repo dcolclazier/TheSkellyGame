@@ -1,18 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
 public class LobbyPlayer : NetworkLobbyPlayer {
 
-
-    //private static readonly List<Color> Colors = new List<Color>(){Color.magenta, Color.black, Color.cyan, Color.blue, Color.green, Color.yellow};
-
-    //private static List<Color> _colorsInUse;
-    //public static List<Color> ColorsInUse { get { return _colorsInUse ?? (_colorsInUse = new List<Color>()); }} 
-
-    //private static List<Color> _availableColors = new List<Color>();
 
     [SyncVar(hook = "OnMyName")] public string PlayerName = "";
 
@@ -31,17 +22,11 @@ public class LobbyPlayer : NetworkLobbyPlayer {
     public override void OnClientEnterLobby() {
         base.OnClientEnterLobby();
 
-        //if(MultiplayerManager.Instance!= null)
-        //    MultiplayerManager.Instance.OnPlayerCountChange(1); // gross
-
         _lobbyPlayers.AddPlayer(this);
 
         SetupOtherPlayer();
 
         OnMyName(PlayerName);
-        //OnMyColor(MultiplayerManager.Instance.FirstAvailablePlayerColor());
-        //MultiplayerManager.Instance.SetFirstAvailablePlayerColor(this);
-        //UpdateAvailableColors();
         OnMyColor(PlayerColor);
         OnMyReady(PlayerReady);
     }
@@ -54,6 +39,9 @@ public class LobbyPlayer : NetworkLobbyPlayer {
         NameInput.interactable = false;
         ReadyCheck.interactable = false;
         ColorChoicesDropdown.interactable = false;
+        ColorChoicesDropdown.options.Clear();
+        foreach (var c in MultiplayerManager.Instance.Colors)
+            ColorChoicesDropdown.options.Add(new Dropdown.OptionData() { text = c.GetName() });
         GetComponent<Image>().color = Color.gray;
 
     }
@@ -71,26 +59,16 @@ public class LobbyPlayer : NetworkLobbyPlayer {
         ColorChoicesDropdown.interactable = true;
         GetComponent<Image>().color = Color.white;
 
-        ColorChoicesDropdown.options.Clear();
-        foreach (var c in MultiplayerManager.Instance.Colors)
-            ColorChoicesDropdown.options.Add(new Dropdown.OptionData() { text = c.GetName() });
-
         CmdColorChanged(MultiplayerManager.Instance.FirstAvailablePlayerColor());
-
-        ReadyCheck.isOn = false;
-        PlayerReady = false;
 
         if (PlayerName == "")
             CmdNameChanged("Player " + (_lobbyPlayers.PlayerListContentTransform.childCount-1));
 
+        ReadyCheck.isOn = false;
+        PlayerReady = false;
         OnMyReady(PlayerReady);
 
-
-        //MultiplayerManager.Instance.UpdateAvailableColors(this, );
-        //OnMyColor(MultiplayerManager.Instance.FirstAvailablePlayerColor());
-
         NameInput.Select();
-        
         NameInput.onEndEdit.RemoveAllListeners();
         NameInput.onEndEdit.AddListener(OnNameChanged);
 

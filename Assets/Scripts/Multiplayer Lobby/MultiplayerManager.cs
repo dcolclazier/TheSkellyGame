@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class MultiplayerManager : NetworkLobbyManager {
 
     
-    public Button StartLobbyGameBtn;
+    
     public bool CurrentlyInGame { get; set; }
     public bool CurrentlyMatchmaking { get; set; }
     private const float PrematchCountdown = 5;
@@ -17,11 +17,13 @@ public class MultiplayerManager : NetworkLobbyManager {
     private RectTransform _currentPanel;
 
     public readonly List<Color> Colors = new List<Color> { Color.magenta, Color.black, Color.cyan, Color.blue, Color.green, Color.yellow };
-    public List<Color> ColorsInUse { get { return _colorsInUse ?? (_colorsInUse = new List<Color>()); }}
-    private List<Color> _colorsInUse = new List<Color>();
+    public List<Color> ColorsInUse { get { return _colorsInUse; }}
+    private readonly List<Color> _colorsInUse = new List<Color>();
 
     public static MultiplayerManager Instance;
 
+    public MatchInfo CurrentMatchInfo { get; private set; }
+    public RectTransform StartLobbyGameBtn;
     public RectTransform MainMenuPanel;
     public RectTransform MultiplayerPanel;
     public RectTransform SettingsPanel;
@@ -38,15 +40,11 @@ public class MultiplayerManager : NetworkLobbyManager {
 	}
 
     public override void OnLobbyClientSceneChanged(NetworkConnection connection) {
-
         Deactivate();
-
     }
 
     public override void OnLobbyClientDisconnect(NetworkConnection conn) {
-
         LeaveLobby();
-
     }
 
     public override void OnMatchCreate(bool success, string extendedInfo, MatchInfo matchInfo) {
@@ -56,7 +54,6 @@ public class MultiplayerManager : NetworkLobbyManager {
         ColorsInUse.Clear();
     }
 
-    public MatchInfo CurrentMatchInfo { get; private set; }
 
     public override void OnStartHost() {
         base.OnStartHost();
@@ -76,8 +73,7 @@ public class MultiplayerManager : NetworkLobbyManager {
     }
     public override void OnLobbyClientEnter() {
         base.OnLobbyClientEnter();
-
-        StartLobbyGameBtn.enabled = NetworkServer.active;
+        StartLobbyGameBtn.gameObject.SetActive(NetworkServer.active);
     }
     public override void OnLobbyServerPlayersReady() {}
 
@@ -127,10 +123,6 @@ public class MultiplayerManager : NetworkLobbyManager {
     public override GameObject OnLobbyServerCreateLobbyPlayer(NetworkConnection conn, short playerControllerId) {
 
         var prefab = Instantiate(lobbyPlayerPrefab.gameObject) as GameObject;
-        //var preTest = prefab.GetComponent<LobbyPlayer>();
-        //preTest.PlayerColor = GetFirstAvailablePlayerColor();
-        //preTest.ColorChoicesDropdown.itemText.text = preTest.PlayerColor.GetName();
-
         foreach (var netLobbyPlayer in lobbySlots) {
             var player = netLobbyPlayer as LobbyPlayer;
             if (player != null) {
@@ -152,37 +144,16 @@ public class MultiplayerManager : NetworkLobbyManager {
     }
 
     public void UpdateAvailableColors(LobbyPlayer player, Color color) {
-        if (ColorsInUse.Contains(player.PlayerColor))
-            MakeColorAvailable(player.PlayerColor);
-        MakeColorUnavailable(color);
-
-        player.PlayerColor = color;
-        player.DropDownImage.color = color;
-        player.ColorChoicesDropdown.GetComponentInChildren<Text>().text = color.GetName();
-        player.ColorChoicesDropdown.value = Colors.IndexOf(color);
-        player.ColorChoicesDropdown.options.Clear();
-        foreach (var c in Colors)
-            player.ColorChoicesDropdown.options.Add(new Dropdown.OptionData() {text = c.GetName()});
-    }
-
-    private void MakeColorUnavailable(Color color) {
-
+        if (!ColorsInUse.Remove(player.PlayerColor)) {
+            Debug.LogError("Tried to make a color available that was already available.");
+        }
         if (ColorsInUse.Contains(color)) {
             Debug.LogError("Tried to make an unavailable color unavailable..." + color.GetName());
-            return;
-        }
-        ColorsInUse.Add(color);
-        Debug.Log("Made " + color.GetName() + " unavailable for selection.");
-    }
-    
-    private void MakeColorAvailable(Color color)
-    {
-        if (!ColorsInUse.Remove(color))
-            Debug.LogError("Tried to make a color available that was already available.");
-        Debug.Log("Made " + color.GetName() + " available for selection.");
+        } else ColorsInUse.Add(color);
+
     }
 
-    public override void OnClientConnect(NetworkConnection conn)
+   public override void OnClientConnect(NetworkConnection conn)
     {
         base.OnClientConnect(conn);
 
@@ -199,7 +170,6 @@ public class MultiplayerManager : NetworkLobbyManager {
         if (CurrentlyMatchmaking) {
             matchMaker.DestroyMatch(CurrentMatchInfo.networkId, 0, OnDestroyMatch);
             StopHost();
-            //_disconnectServer = true;
         }
         else if(NetworkServer.active) StopHost();
         else StopClient();
@@ -230,8 +200,5 @@ public class MultiplayerManager : NetworkLobbyManager {
         CountdownPanel.gameObject.SetActive(false);
         TitlePanel.gameObject.SetActive(false);
     }
-
-    public List<Color> AvailableColors() {
-        return Instance.Colors.Where(c => Instance.ColorsInUse.All(c2 => c2 != c)).ToList();
-    }
+    
 }

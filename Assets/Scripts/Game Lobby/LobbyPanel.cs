@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class LobbyPanel : MonoBehaviour {
 
-    public Button CancelButton;
-    public Button StartGameButton;
+    //public Button CancelButton;
+    //public Button StartGameButton;
     public MultiplayerManager NetManager;
     
 

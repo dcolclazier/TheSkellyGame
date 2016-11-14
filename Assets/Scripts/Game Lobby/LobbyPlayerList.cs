@@ -34,9 +34,6 @@ public class LobbyPlayerList : MonoBehaviour {
     }
     public void PlayerListModified()
     {
-        var i = 0;
-        foreach (var lobbyPanelPlayer in _players) {
-            //lobbyPanelPlayer.OnPlayerListChanged(i++);
-        }
+        
     }
 }
