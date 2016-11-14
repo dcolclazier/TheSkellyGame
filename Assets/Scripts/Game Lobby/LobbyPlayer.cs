@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class LobbyPlayer : NetworkLobbyPlayer {
 
 
-    private static readonly List<Color> Colors = new List<Color>(){Color.magenta, Color.black, Color.cyan, Color.blue, Color.green, Color.yellow};
+    //private static readonly List<Color> Colors = new List<Color>(){Color.magenta, Color.black, Color.cyan, Color.blue, Color.green, Color.yellow};
 
-    private static List<Color> _colorsInUse;
-    public static List<Color> ColorsInUse { get { return _colorsInUse ?? (_colorsInUse = new List<Color>()); }} 
+    //private static List<Color> _colorsInUse;
+    //public static List<Color> ColorsInUse { get { return _colorsInUse ?? (_colorsInUse = new List<Color>()); }} 
 
-    private static List<Color> _availableColors = new List<Color>();
+    //private static List<Color> _availableColors = new List<Color>();
 
     [SyncVar(hook = "OnMyName")] public string PlayerName = "";
 
@@ -31,14 +31,17 @@ public class LobbyPlayer : NetworkLobbyPlayer {
     public override void OnClientEnterLobby() {
         base.OnClientEnterLobby();
 
-        if(MultiplayerManager.Instance!= null)
-            MultiplayerManager.Instance.OnPlayerCountChange(1); // gross
+        //if(MultiplayerManager.Instance!= null)
+        //    MultiplayerManager.Instance.OnPlayerCountChange(1); // gross
 
         _lobbyPlayers.AddPlayer(this);
 
         SetupOtherPlayer();
 
         OnMyName(PlayerName);
+        //OnMyColor(MultiplayerManager.Instance.FirstAvailablePlayerColor());
+        //MultiplayerManager.Instance.SetFirstAvailablePlayerColor(this);
+        //UpdateAvailableColors();
         OnMyColor(PlayerColor);
         OnMyReady(PlayerReady);
     }
@@ -46,38 +49,45 @@ public class LobbyPlayer : NetworkLobbyPlayer {
     private void SetupOtherPlayer() {
         if (isLocalPlayer) return;
 
+        Debug.Log("Setup other player.");
+
         NameInput.interactable = false;
         ReadyCheck.interactable = false;
         ColorChoicesDropdown.interactable = false;
+        GetComponent<Image>().color = Color.gray;
 
     }
     public override void OnStartAuthority()
     {
         base.OnStartAuthority();
-
+        Debug.Log("On Start authority");
         SetupLocalPlayer();
     }
     private void SetupLocalPlayer() {
+
+        Debug.Log("Setup local player.");
         NameInput.interactable = true;
         ReadyCheck.interactable = true;
         ColorChoicesDropdown.interactable = true;
+        GetComponent<Image>().color = Color.white;
 
-        //must choose color?
+        ColorChoicesDropdown.options.Clear();
+        foreach (var c in MultiplayerManager.Instance.Colors)
+            ColorChoicesDropdown.options.Add(new Dropdown.OptionData() { text = c.GetName() });
+
+        CmdColorChanged(MultiplayerManager.Instance.FirstAvailablePlayerColor());
+
         ReadyCheck.isOn = false;
         PlayerReady = false;
-
-        UpdateAvailableColors();
-        Debug.Log("First available color: " + _availableColors.First().GetName());
-        CmdColorChanged(_availableColors.First());
-
-        Debug.Log("Index of player color: " + Colors.IndexOf(PlayerColor));
-        Debug.Log("Player Color: " + PlayerColor.GetName());
-        OnColorChanged(Colors.IndexOf(PlayerColor));
 
         if (PlayerName == "")
             CmdNameChanged("Player " + (_lobbyPlayers.PlayerListContentTransform.childCount-1));
 
         OnMyReady(PlayerReady);
+
+
+        //MultiplayerManager.Instance.UpdateAvailableColors(this, );
+        //OnMyColor(MultiplayerManager.Instance.FirstAvailablePlayerColor());
 
         NameInput.onEndEdit.RemoveAllListeners();
         NameInput.onEndEdit.AddListener(OnNameChanged);
@@ -94,8 +104,9 @@ public class LobbyPlayer : NetworkLobbyPlayer {
     }
 
     private void OnColorChanged(int colorIndex) {
-        CmdColorChanged(Colors[colorIndex]);
+        CmdColorChanged(MultiplayerManager.Instance.Colors[colorIndex]);
     }
+    
 
     private void OnNameChanged(string newName) {
         CmdNameChanged(newName);
@@ -120,34 +131,12 @@ public class LobbyPlayer : NetworkLobbyPlayer {
 
     public void OnMyColor(Color newColor) {
 
-        if (newColor == Color.white) {
-            UpdateAvailableColors();
-            newColor = _availableColors.First();
-        }
-
-        ColorsInUse.Remove(PlayerColor);
-
-        Debug.Log("Player color has been changed from " + PlayerColor.GetName() + " to " + newColor.GetName());
+        MultiplayerManager.Instance.UpdateAvailableColors(this,newColor);
         PlayerColor = newColor;
-        DropDownImage.color = PlayerColor;
-        ColorChoicesDropdown.GetComponentInChildren<Text>().text = PlayerColor.GetName();
-        ColorChoicesDropdown.itemText.text = PlayerColor.GetName();
-
-        ColorsInUse.Add(PlayerColor);
-    }
-
-    public void UpdateAvailableColors() {
-
-        _availableColors = Colors.Where(c => ColorsInUse.All(c2 => c2 != c)).ToList();
-        ColorChoicesDropdown.options.Clear();
-        foreach (var color in Colors) {
-            ColorChoicesDropdown.options.Add(new Dropdown.OptionData() { text = color.GetName()});
-        }
-    }
-
-    public void OnPlayerListChanged(int playerIndex) {
-
-
+        DropDownImage.color = newColor;
+        ColorChoicesDropdown.GetComponentInChildren<Text>().text = newColor.GetName();
+        ColorChoicesDropdown.value = MultiplayerManager.Instance.Colors.IndexOf(newColor);
+        
     }
 
     [Command]
@@ -156,11 +145,9 @@ public class LobbyPlayer : NetworkLobbyPlayer {
     }
 
     [Command]
-    public void CmdColorChanged(Color color) {
-
-        OnMyColor(color);
-        UpdateAvailableColors();
-
+    public void CmdColorChanged(Color color)
+    {
+        PlayerColor = color;
     }
 
     [Command]

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
 using UnityEngine.UI;
@@ -14,6 +16,10 @@ public class MultiplayerManager : NetworkLobbyManager {
 
     private RectTransform _currentPanel;
 
+    public readonly List<Color> Colors = new List<Color> { Color.magenta, Color.black, Color.cyan, Color.blue, Color.green, Color.yellow };
+    public List<Color> ColorsInUse { get { return _colorsInUse ?? (_colorsInUse = new List<Color>()); }}
+    private List<Color> _colorsInUse = new List<Color>();
+
     public static MultiplayerManager Instance;
 
     public RectTransform MainMenuPanel;
@@ -23,6 +29,7 @@ public class MultiplayerManager : NetworkLobbyManager {
     public RectTransform TitlePanel;
     public LobbyCountdownPanel CountdownPanel;
     public InfoPanel InfoPanel;
+    
     // Use this for initialization
     void Start () {
 	    Instance = this;
@@ -46,6 +53,7 @@ public class MultiplayerManager : NetworkLobbyManager {
         base.OnMatchCreate(success, extendedInfo, matchInfo);
 
         CurrentMatchInfo = matchInfo;
+        ColorsInUse.Clear();
     }
 
     public MatchInfo CurrentMatchInfo { get; private set; }
@@ -55,25 +63,22 @@ public class MultiplayerManager : NetworkLobbyManager {
 
         SwitchPanel(LobbyPanel);
     }
-
     public void CancelClientConnection() {
         LeaveLobby();
     }
 
     public void CancelHostConnection() {
+
         LeaveLobby();
     }
-
     public void OnPlayerCountChange(int i) {
         
     }
-
     public override void OnLobbyClientEnter() {
         base.OnLobbyClientEnter();
 
         StartLobbyGameBtn.enabled = NetworkServer.active;
     }
-
     public override void OnLobbyServerPlayersReady() {}
 
     public void StartLobbyGame() {
@@ -122,6 +127,9 @@ public class MultiplayerManager : NetworkLobbyManager {
     public override GameObject OnLobbyServerCreateLobbyPlayer(NetworkConnection conn, short playerControllerId) {
 
         var prefab = Instantiate(lobbyPlayerPrefab.gameObject) as GameObject;
+        //var preTest = prefab.GetComponent<LobbyPlayer>();
+        //preTest.PlayerColor = GetFirstAvailablePlayerColor();
+        //preTest.ColorChoicesDropdown.itemText.text = preTest.PlayerColor.GetName();
 
         foreach (var netLobbyPlayer in lobbySlots) {
             var player = netLobbyPlayer as LobbyPlayer;
@@ -132,6 +140,48 @@ public class MultiplayerManager : NetworkLobbyManager {
 
         return prefab;
     }
+
+    public Color FirstAvailablePlayerColor()
+    {
+        foreach (var color in Colors)
+        {
+            if (ColorsInUse.Contains(color)) continue;
+            return color;
+        }
+        return Color.white;
+    }
+
+    public void UpdateAvailableColors(LobbyPlayer player, Color color) {
+        if (ColorsInUse.Contains(player.PlayerColor))
+            MakeColorAvailable(player.PlayerColor);
+        MakeColorUnavailable(color);
+
+        player.PlayerColor = color;
+        player.DropDownImage.color = color;
+        player.ColorChoicesDropdown.GetComponentInChildren<Text>().text = color.GetName();
+        player.ColorChoicesDropdown.value = Colors.IndexOf(color);
+        player.ColorChoicesDropdown.options.Clear();
+        foreach (var c in Colors)
+            player.ColorChoicesDropdown.options.Add(new Dropdown.OptionData() {text = c.GetName()});
+    }
+
+    private void MakeColorUnavailable(Color color) {
+
+        if (ColorsInUse.Contains(color)) {
+            Debug.LogError("Tried to make an unavailable color unavailable..." + color.GetName());
+            return;
+        }
+        ColorsInUse.Add(color);
+        Debug.Log("Made " + color.GetName() + " unavailable for selection.");
+    }
+    
+    private void MakeColorAvailable(Color color)
+    {
+        if (!ColorsInUse.Remove(color))
+            Debug.LogError("Tried to make a color available that was already available.");
+        Debug.Log("Made " + color.GetName() + " available for selection.");
+    }
+
     public override void OnClientConnect(NetworkConnection conn)
     {
         base.OnClientConnect(conn);
@@ -178,5 +228,9 @@ public class MultiplayerManager : NetworkLobbyManager {
         LobbyPanel.gameObject.SetActive(false);
         CountdownPanel.gameObject.SetActive(false);
         TitlePanel.gameObject.SetActive(false);
+    }
+
+    public List<Color> AvailableColors() {
+        return Instance.Colors.Where(c => Instance.ColorsInUse.All(c2 => c2 != c)).ToList();
     }
 }
