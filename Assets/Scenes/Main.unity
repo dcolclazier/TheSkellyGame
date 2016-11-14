@@ -256,6 +256,7 @@ MonoBehaviour:
   PublicGameList: {fileID: 959338028}
   MultiplayerGameName: {fileID: 1646006900}
   MultiplayerHostAddress: {fileID: 534732238}
+  InfoPanel: {fileID: 0}
   SlotCountDropdown: {fileID: 1596375172}
 --- !u!1 &98862507
 GameObject:
@@ -470,7 +471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &123531837
 RectTransform:
   m_ObjectHideFlags: 0
@@ -539,8 +540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e47c9689416ab49b7057cff94c2a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CancelButton: {fileID: 1809599939}
-  StartGameButton: {fileID: 995250152}
   NetManager: {fileID: 870137195}
 --- !u!1 &147128606
 GameObject:
@@ -1626,7 +1625,7 @@ RectTransform:
   m_Father: {fileID: 497283780}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2368,8 +2367,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.000011444092}
-  m_SizeDelta: {x: 268.1, y: 88.9}
+  m_AnchoredPosition: {x: 0, y: -5.4}
+  m_SizeDelta: {x: 371.9, y: 168.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &556649395
 MonoBehaviour:
@@ -2397,7 +2396,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3871,7 +3870,7 @@ MonoBehaviour:
   m_LobbyScene: Main
   m_PlayScene: PlaceHolderPlay
   lobbySlots: []
-  StartLobbyGameBtn: {fileID: 0}
+  StartLobbyGameBtn: {fileID: 995250151}
   MainMenuPanel: {fileID: 860925915}
   MultiplayerPanel: {fileID: 87195275}
   SettingsPanel: {fileID: 1796568135}
@@ -4841,7 +4840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.058823526, g: 0.053633217, b: 0.053633217, a: 0.14}
+  m_Color: {r: 0.115916945, g: 0.116740234, b: 0.2352941, a: 0.928}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5249,8 +5248,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 744600140}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.07999998}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}

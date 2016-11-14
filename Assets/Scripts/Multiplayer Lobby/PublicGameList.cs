@@ -31,7 +31,7 @@ public class PublicGameList : MonoBehaviour {
     {
         Instance = this;
         //_layout = GameListContentTransform.GetComponent<VerticalLayoutGroup>();
-
+        LatestPublicGames = new List<MatchInfoSnapshot>();
     }
 
     public void AddGame(PublicGameEntry gameEntry, MatchInfoSnapshot gameInfo)
@@ -73,9 +73,9 @@ public class PublicGameList : MonoBehaviour {
 
         RequestPage(newPage);
     }
-    private void OnGuiMatchList(bool success, string extendedinfo, List<MatchInfoSnapshot> publicGameList)
-    {
-
+    private void OnGuiMatchList(bool success, string extendedinfo, List<MatchInfoSnapshot> publicGameList) {
+        LatestPublicGames.Clear();
+        LatestPublicGames = publicGameList;
         if (publicGameList.Count == 0)
         {
             if (CurrentPage == 0)
@@ -93,4 +93,5 @@ public class PublicGameList : MonoBehaviour {
         }
     }
 
+    public List<MatchInfoSnapshot> LatestPublicGames { get; private set; }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class MultiplayerPanel : MonoBehaviour {
@@ -9,6 +10,7 @@ public class MultiplayerPanel : MonoBehaviour {
 
     public InputField MultiplayerGameName;
     public InputField MultiplayerHostAddress;
+    public InfoPanel InfoPanel;
     public Dropdown SlotCountDropdown;
 
     //void Start() {
@@ -41,6 +43,17 @@ public class MultiplayerPanel : MonoBehaviour {
 
     }
     public void OnClickCreateMpGame() {
+
+        //no blank names fix
+        if (MultiplayerGameName.text == "") {
+            NetManager.DisplayInfoPanel("Game name cannot be blank.", "Ok.", NetManager.SimpleCancel);
+            return;
+        }
+
+        if (PublicGameList.LatestPublicGames.Any(game => MultiplayerGameName.text == game.name)) {
+            NetManager.DisplayInfoPanel("Game name exists... Please try another.", "Ok.", NetManager.SimpleCancel);
+            return;
+        }
 
         NetManager.SetMatchHost(NetManager.matchHost,NetManager.matchPort,true);
 

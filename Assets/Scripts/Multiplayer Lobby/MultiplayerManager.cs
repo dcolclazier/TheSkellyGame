@@ -42,40 +42,66 @@ public class MultiplayerManager : NetworkLobbyManager {
     public override void OnLobbyClientSceneChanged(NetworkConnection connection) {
         Deactivate();
     }
-
     public override void OnLobbyClientDisconnect(NetworkConnection conn) {
         LeaveLobby();
     }
-
     public override void OnMatchCreate(bool success, string extendedInfo, MatchInfo matchInfo) {
         base.OnMatchCreate(success, extendedInfo, matchInfo);
 
         CurrentMatchInfo = matchInfo;
         ColorsInUse.Clear();
     }
-
-
     public override void OnStartHost() {
         base.OnStartHost();
 
         SwitchPanel(LobbyPanel);
     }
-    public void CancelClientConnection() {
-        StopClient();
-    }
-
-    public void CancelHostConnection() {
-
-        LeaveLobby();
-    }
-    public void OnPlayerCountChange(int i) {
-        
-    }
-    public override void OnLobbyClientEnter() {
+    public override void OnLobbyClientEnter()
+    {
         base.OnLobbyClientEnter();
         StartLobbyGameBtn.gameObject.SetActive(NetworkServer.active);
     }
-    public override void OnLobbyServerPlayersReady() {}
+    public override void OnLobbyServerPlayersReady() { } //intentionally left empty.
+    public override void OnClientConnect(NetworkConnection conn)
+    {
+        base.OnClientConnect(conn);
+
+        InfoPanel.gameObject.SetActive(false);
+
+        if (!NetworkServer.active)
+        {
+            SwitchPanel(LobbyPanel);
+        }
+    }
+
+    public override GameObject OnLobbyServerCreateLobbyPlayer(NetworkConnection conn, short playerControllerId)
+    {
+        var prefab = Instantiate(lobbyPlayerPrefab.gameObject) as GameObject;
+        foreach (var netLobbyPlayer in lobbySlots) {
+            var player = netLobbyPlayer as LobbyPlayer;
+            if (player != null)
+                player.PlayerReady = false;
+        }
+
+        return prefab;
+    }
+
+    //Cancel Delegates
+    public void CancelClientConnection() {
+        StopClient();
+    }
+    public void SimpleCancel() {
+        InfoPanel.gameObject.SetActive(false);
+    }
+    public void CancelHostConnection() {
+        LeaveLobby();
+    }
+
+
+    public void OnPlayerCountChange(int i) {
+        
+    }
+
 
     public void StartLobbyGame() {
         var allReady = true;
@@ -120,19 +146,7 @@ public class MultiplayerManager : NetworkLobbyManager {
         ServerChangeScene(playScene);
     }
 
-    public override GameObject OnLobbyServerCreateLobbyPlayer(NetworkConnection conn, short playerControllerId) {
-
-        var prefab = Instantiate(lobbyPlayerPrefab.gameObject) as GameObject;
-        foreach (var netLobbyPlayer in lobbySlots) {
-            var player = netLobbyPlayer as LobbyPlayer;
-            if (player != null) {
-                player.PlayerReady = false;
-            }
-        }
-
-        return prefab;
-    }
-
+   
     public Color FirstAvailablePlayerColor()
     {
         foreach (var color in Colors)
@@ -142,7 +156,6 @@ public class MultiplayerManager : NetworkLobbyManager {
         }
         return Color.white;
     }
-
     public void UpdateAvailableColors(LobbyPlayer player, Color color) {
         if (!ColorsInUse.Remove(player.PlayerColor)) {
             Debug.LogError("Tried to make a color available that was already available.");
@@ -153,17 +166,7 @@ public class MultiplayerManager : NetworkLobbyManager {
 
     }
 
-   public override void OnClientConnect(NetworkConnection conn)
-    {
-        base.OnClientConnect(conn);
-
-        InfoPanel.gameObject.SetActive(false);
-        
-        if (!NetworkServer.active) {
-            SwitchPanel(LobbyPanel);
-        }
-    }
-
+    
     //leave lobby and return to multiplayer screen
     public void LeaveLobby() {
 
@@ -183,12 +186,10 @@ public class MultiplayerManager : NetworkLobbyManager {
         if (activePanel != null) activePanel.gameObject.SetActive(true);
         _currentPanel = activePanel;
     }
-
     public void DisplayInfoPanel(string infoText, string buttonText, UnityEngine.Events.UnityAction cancelAction)
     {
         InfoPanel.Display(infoText, buttonText, cancelAction);
     }
-
     public void Deactivate()
     {
         if (_currentPanel != null) _currentPanel.gameObject.SetActive(false);
