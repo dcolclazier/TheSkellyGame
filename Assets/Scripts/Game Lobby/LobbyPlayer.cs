@@ -104,8 +104,8 @@ public class LobbyPlayer : NetworkLobbyPlayer {
         PlayerReady = ready;
         ReadyCheck.isOn = PlayerReady;
 
-        if (PlayerReady) SendReadyToBeginMessage();
-        else SendNotReadyToBeginMessage();
+        if (PlayerReady && isLocalPlayer) SendReadyToBeginMessage();
+        else if(isLocalPlayer) SendNotReadyToBeginMessage();
 
     }
 

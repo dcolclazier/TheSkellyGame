@@ -58,6 +58,7 @@ public class MultiplayerManager : NetworkLobbyManager {
         base.OnStartHost();
 
         SwitchPanel(LobbyPanel);
+        ColorsInUse.Clear();
     }
     public override void OnLobbyClientEnter()
     {
@@ -170,7 +171,7 @@ public class MultiplayerManager : NetworkLobbyManager {
     }
     public void UpdateAvailableColors(LobbyPlayer player, Color color) {
         if (!ColorsInUse.Remove(player.PlayerColor) && player.PlayerColor != Color.white) {
-            Debug.LogError("Tried to make a color available that was already available.");
+            Debug.LogError("Tried to make a color available that was already available." + player.PlayerColor.GetName());
         }
         if (ColorsInUse.Contains(color)) {
             Debug.LogError("Tried to make an unavailable color unavailable..." + color.GetName());
@@ -184,6 +185,7 @@ public class MultiplayerManager : NetworkLobbyManager {
 
         if (CurrentlyMatchmaking) {
             matchMaker.DestroyMatch(CurrentMatchInfo.networkId, 0, OnDestroyMatch);
+            ColorsInUse.Clear();
             StopHost();
         }
         else if(NetworkServer.active) StopHost();
