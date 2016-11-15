@@ -1,0 +1,213 @@
+fileFormatVersion: 2
+guid: d42b22544d1e35d4fb7faabda2ae6942
+timeCreated: 1479179799
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: _spritesheet_death_0
+    21300002: _spritesheet_death_1
+    21300004: _spritesheet_death_2
+    21300006: _spritesheet_death_3
+    21300008: _spritesheet_death_4
+    21300010: _spritesheet_death_5
+    21300012: _spritesheet_death_6
+    21300014: _spritesheet_death_7
+    21300016: _spritesheet_death_8
+    21300018: _spritesheet_death_9
+    21300020: _spritesheet_death_10
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: _spritesheet_death_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 41
+        width: 116
+        height: 274
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: _spritesheet_death_1
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 34
+        width: 120
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: _spritesheet_death_2
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 27
+        width: 123
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: _spritesheet_death_3
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 20
+        width: 126
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: _spritesheet_death_4
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 19
+        width: 129
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: _spritesheet_death_5
+      rect:
+        serializedVersion: 2
+        x: 1114
+        y: 23
+        width: 133
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: _spritesheet_death_6
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 20
+        width: 37
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: _spritesheet_death_7
+      rect:
+        serializedVersion: 2
+        x: 1325
+        y: 13
+        width: 131
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: _spritesheet_death_8
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 20
+        width: 146
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: _spritesheet_death_9
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 12
+        width: 178
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: _spritesheet_death_10
+      rect:
+        serializedVersion: 2
+        x: 1929
+        y: 0
+        width: 216
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
