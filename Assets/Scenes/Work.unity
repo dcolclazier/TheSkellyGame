@@ -163,7 +163,7 @@ GameObject:
   - 33: {fileID: 1370068072}
   - 23: {fileID: 1370068070}
   - 61: {fileID: 1370068071}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,6 +574,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 10
   Jump: 1500
+  isGroundedRayLength: 0.1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!50 &2087546729
 Rigidbody2D:
   serializedVersion: 2
