@@ -10,7 +10,6 @@ public class MainMenuPanel : MonoBehaviour {
 
     public void OnClickMultiPlayer()
     {
-        if(NetManager == null) Debug.Log("WTF???????");
         NetManager.SwitchPanel(NetManager.MultiplayerPanel);
     }
     public void OnClickSettings()
