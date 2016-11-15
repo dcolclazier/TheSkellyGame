@@ -23,6 +23,7 @@ public class MultiplayerManager : NetworkLobbyManager {
     public static MultiplayerManager Instance;
 
     public MatchInfo CurrentMatchInfo { get; private set; }
+
     public RectTransform StartLobbyGameBtn;
     public RectTransform MainMenuPanel;
     public RectTransform MultiplayerPanel;
@@ -31,7 +32,9 @@ public class MultiplayerManager : NetworkLobbyManager {
     public RectTransform TitlePanel;
     public LobbyCountdownPanel CountdownPanel;
     public InfoPanel InfoPanel;
-    
+    private readonly Dictionary<NetworkConnection, GameObject> _lobbyPlayers = new Dictionary<NetworkConnection, GameObject>();
+    private readonly Dictionary<NetworkConnection, GameObject> _gamePlayers = new Dictionary<NetworkConnection, GameObject>();
+
     // Use this for initialization
     void Start () {
 	    Instance = this;
@@ -74,6 +77,15 @@ public class MultiplayerManager : NetworkLobbyManager {
         }
     }
 
+    public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId) {
+        var prefab = Instantiate(gamePlayerPrefab.gameObject) as GameObject;
+        prefab.GetComponent<SpriteRenderer>().color = _lobbyPlayers[conn].GetComponent<LobbyPlayer>().PlayerColor;
+        _gamePlayers.Add(conn, prefab);
+
+        return prefab;
+    }
+  
+
     public override GameObject OnLobbyServerCreateLobbyPlayer(NetworkConnection conn, short playerControllerId)
     {
         var prefab = Instantiate(lobbyPlayerPrefab.gameObject) as GameObject;
@@ -82,7 +94,7 @@ public class MultiplayerManager : NetworkLobbyManager {
             if (player != null)
                 player.PlayerReady = false;
         }
-
+        _lobbyPlayers.Add(conn, prefab);
         return prefab;
     }
 
@@ -157,7 +169,7 @@ public class MultiplayerManager : NetworkLobbyManager {
         return Color.white;
     }
     public void UpdateAvailableColors(LobbyPlayer player, Color color) {
-        if (!ColorsInUse.Remove(player.PlayerColor)) {
+        if (!ColorsInUse.Remove(player.PlayerColor) && player.PlayerColor != Color.white) {
             Debug.LogError("Tried to make a color available that was already available.");
         }
         if (ColorsInUse.Contains(color)) {
@@ -203,3 +215,5 @@ public class MultiplayerManager : NetworkLobbyManager {
     }
     
 }
+
+
