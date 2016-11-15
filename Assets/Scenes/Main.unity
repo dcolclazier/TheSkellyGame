@@ -3781,6 +3781,7 @@ GameObject:
   - 223: {fileID: 870137197}
   - 114: {fileID: 870137196}
   - 114: {fileID: 870137194}
+  - 114: {fileID: 870137199}
   m_Layer: 0
   m_Name: MultiplayerManager
   m_TagString: Untagged
@@ -3828,7 +3829,7 @@ MonoBehaviour:
   m_PlayerPrefab: {fileID: 0}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
-  m_OfflineScene: 
+  m_OfflineScene: Main
   m_OnlineScene: 
   m_SpawnPrefabs: []
   m_CustomConfig: 0
@@ -3877,19 +3878,21 @@ MonoBehaviour:
   m_MaxPlayers: 4
   m_MaxPlayersPerConnection: 1
   m_MinPlayers: 0
-  m_LobbyPlayerPrefab: {fileID: 0}
-  m_GamePlayerPrefab: {fileID: 0}
-  m_LobbyScene: 
-  m_PlayScene: 
+  m_LobbyPlayerPrefab: {fileID: 114000012258899266, guid: 95380a214b519794d87a1a2c88c8567d,
+    type: 2}
+  m_GamePlayerPrefab: {fileID: 1000013447815260, guid: 567c5ee68a214a244a71235c1bedbc3e,
+    type: 2}
+  m_LobbyScene: Main
+  m_PlayScene: GameScene
   lobbySlots: []
-  StartLobbyGameBtn: {fileID: 0}
-  MainMenuPanel: {fileID: 0}
-  MultiplayerPanel: {fileID: 0}
-  SettingsPanel: {fileID: 0}
-  LobbyPanel: {fileID: 0}
-  TitlePanel: {fileID: 0}
-  CountdownPanel: {fileID: 0}
-  InfoPanel: {fileID: 0}
+  StartLobbyGameBtn: {fileID: 995250151}
+  MainMenuPanel: {fileID: 860925915}
+  MultiplayerPanel: {fileID: 87195275}
+  SettingsPanel: {fileID: 1796568135}
+  LobbyPanel: {fileID: 123531837}
+  TitlePanel: {fileID: 1654913552}
+  CountdownPanel: {fileID: 1773977608}
+  InfoPanel: {fileID: 1131530974}
 --- !u!114 &870137196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3955,6 +3958,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &870137199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 870137193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d82303ca58bfbf842ade8b4ef8429507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &917350274
 GameObject:
   m_ObjectHideFlags: 0
