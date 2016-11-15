@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
+using UnityEngine.UI;
 
 public class MultiplayerManager : NetworkLobbyManager {
 
+    
+    
     public bool CurrentlyInGame { get; set; }
     public bool CurrentlyMatchmaking { get; set; }
     private const float PrematchCountdown = 5;
@@ -20,8 +24,6 @@ public class MultiplayerManager : NetworkLobbyManager {
 
     public MatchInfo CurrentMatchInfo { get; private set; }
 
-
-
     public RectTransform StartLobbyGameBtn;
     public RectTransform MainMenuPanel;
     public RectTransform MultiplayerPanel;
@@ -32,22 +34,13 @@ public class MultiplayerManager : NetworkLobbyManager {
     public InfoPanel InfoPanel;
     private readonly Dictionary<NetworkConnection, GameObject> _lobbyPlayers = new Dictionary<NetworkConnection, GameObject>();
     private readonly Dictionary<NetworkConnection, GameObject> _gamePlayers = new Dictionary<NetworkConnection, GameObject>();
-    private LobbyHook _lobbyHooks;
 
     // Use this for initialization
     void Start () {
 	    Instance = this;
-        _lobbyHooks = GetComponent<LobbyHook>();
         DontDestroyOnLoad(gameObject);
         SwitchPanel(MainMenuPanel);
 	}
-
-    public override bool OnLobbyServerSceneLoadedForPlayer(GameObject lobbyPlayer, GameObject gamePlayer) {
-        if (_lobbyHooks)
-            _lobbyHooks.OnLobbyServerSceneLoadedForPlayer(this, lobbyPlayer, gamePlayer);
-
-        return true;
-    }
 
     public override void OnLobbyClientSceneChanged(NetworkConnection connection) {
         Deactivate();
@@ -224,3 +217,5 @@ public class MultiplayerManager : NetworkLobbyManager {
     }
     
 }
+
+
