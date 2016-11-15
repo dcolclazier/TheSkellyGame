@@ -7,9 +7,7 @@ public class PlayerManager {
     // It works with GameManager class to control how players behave
     // and  whether or not players have control of their player abilities
     // during different phases of the game
-    [HideInInspector]
     public Color PlayerColor;
-    [HideInInspector]
     public Transform SpawnPoint;
     [HideInInspector]
     public int PlayerNumber;
@@ -22,6 +20,10 @@ public class PlayerManager {
     [HideInInspector]
     public int LocalPlayerId;
 
+
+
+    
+
     private PlayerSetup _playerSetup;
     private PlayerMovement _playerMovement;
    
@@ -31,7 +33,7 @@ public class PlayerManager {
         _playerMovement = Instance.GetComponent<PlayerMovement>();
 
         //setup is used for Network related sync.
-        _playerSetup.Color = PlayerColor;
+        _playerSetup.PlayerColor = PlayerColor;
         _playerSetup.PlayerName = PlayerName;
         _playerSetup.PlayerNumber = PlayerNumber;
         _playerSetup.LocalId = LocalPlayerId;

@@ -2,17 +2,17 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class PlayerMovement : NetworkBehaviour {
-    public Rigidbody Rigidbody;
+    public Rigidbody2D Rigidbody;
     public float Speed = 5.0f;
     public float MovementInput { get; private set; }
 
     public void Awake() {
-        Rigidbody = GetComponent<Rigidbody>();
+        Rigidbody = GetComponent<Rigidbody2D>();
     }
 
     public void SetDefaults() {
 
-        Rigidbody.velocity = Vector3.zero;
+        Rigidbody.velocity = Vector2.zero;
     }
 
     private void Update() {
@@ -26,8 +26,8 @@ public class PlayerMovement : NetworkBehaviour {
         Turn();
     }
     public void Move() {
-        var movement = transform.forward * MovementInput * Speed * Time.deltaTime;
-        Rigidbody.MovePosition(Rigidbody.position + movement);
+        Vector2 movement = transform.right * MovementInput * Speed * Time.fixedDeltaTime;
+        Rigidbody.MovePosition((Rigidbody.position + movement));
     }
 
     public void Turn() {

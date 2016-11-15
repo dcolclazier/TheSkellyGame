@@ -36,6 +36,7 @@ public class GameManager : NetworkBehaviour {
             PlayerName = playerName,
             LocalPlayerId = localId
         };
+        manager.Init();
 
         Players.Add(manager);
     }
