@@ -252,12 +252,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd65abe4aec69c3458ff7c052c9cde85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NetManager: {fileID: 0}
-  PublicGameList: {fileID: 0}
-  MultiplayerGameName: {fileID: 0}
-  MultiplayerHostAddress: {fileID: 0}
-  InfoPanel: {fileID: 0}
-  SlotCountDropdown: {fileID: 0}
+  NetManager: {fileID: 870137195}
+  PublicGameList: {fileID: 959338028}
+  MultiplayerGameName: {fileID: 1646006900}
+  MultiplayerHostAddress: {fileID: 534732238}
+  InfoPanel: {fileID: 1131530974}
+  SlotCountDropdown: {fileID: 1596375172}
 --- !u!1 &98862507
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e47c9689416ab49b7057cff94c2a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NetManager: {fileID: 0}
+  NetManager: {fileID: 870137195}
 --- !u!1 &147128606
 GameObject:
   m_ObjectHideFlags: 0
@@ -3767,7 +3767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7476e77ceafee3a4aab34d27d588fc74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NetManager: {fileID: 0}
+  NetManager: {fileID: 870137195}
 --- !u!1 &870137193
 GameObject:
   m_ObjectHideFlags: 0
@@ -3874,7 +3874,7 @@ MonoBehaviour:
   matchSize: 4
   isNetworkActive: 0
   matchMaker: {fileID: 0}
-  m_ShowLobbyGUI: 1
+  m_ShowLobbyGUI: 0
   m_MaxPlayers: 4
   m_MaxPlayersPerConnection: 1
   m_MinPlayers: 0
@@ -4159,10 +4159,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf76614d5f226e4dad5fd6c22294e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NetManager: {fileID: 0}
-  GameListContentTransform: {fileID: 0}
-  PublicGameEntry: {fileID: 0}
-  NoGamesFound: {fileID: 0}
+  NetManager: {fileID: 870137195}
+  GameListContentTransform: {fileID: 661216833}
+  PublicGameEntry: {fileID: 1000012071960320, guid: 3cb0962f863c296438cafa67d8e1425d,
+    type: 2}
+  NoGamesFound: {fileID: 776891628}
 --- !u!1 &988181382
 GameObject:
   m_ObjectHideFlags: 0
@@ -4850,9 +4851,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fedcc3af7e9eae4982d13ae204aca05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoText: {fileID: 0}
-  buttonText: {fileID: 0}
-  panelButton: {fileID: 0}
+  infoText: {fileID: 556649395}
+  buttonText: {fileID: 734845216}
+  panelButton: {fileID: 772124294}
 --- !u!114 &1131530975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5242,7 +5243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71bad6109138901408ef337bb901d963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerListContentTransform: {fileID: 0}
+  PlayerListContentTransform: {fileID: 2014688634}
 --- !u!1 &1175025748
 GameObject:
   m_ObjectHideFlags: 0
@@ -7046,7 +7047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b9784f37000244b8b0351d8723a911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIText: {fileID: 0}
+  UIText: {fileID: 1475715373}
 --- !u!114 &1773977609
 MonoBehaviour:
   m_ObjectHideFlags: 0
