@@ -101,7 +101,7 @@ GameObject:
   - 212: {fileID: 5080049}
   m_Layer: 0
   m_Name: trap 4 (3)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,7 +163,7 @@ GameObject:
   - 212: {fileID: 13643760}
   m_Layer: 0
   m_Name: trap 2
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,9 +224,9 @@ GameObject:
   - 4: {fileID: 26656529}
   - 212: {fileID: 26656528}
   - 60: {fileID: 26656530}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ground 1 (1)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -425,7 +425,7 @@ GameObject:
   - 212: {fileID: 27220716}
   m_Layer: 0
   m_Name: grass 1 (2)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -548,9 +548,9 @@ GameObject:
   - 4: {fileID: 92343235}
   - 212: {fileID: 92343234}
   - 60: {fileID: 92343236}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: platform 8
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -706,7 +706,7 @@ GameObject:
   - 212: {fileID: 97040705}
   m_Layer: 0
   m_Name: grass 2 (1)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -768,7 +768,7 @@ GameObject:
   - 212: {fileID: 173375513}
   m_Layer: 0
   m_Name: trap 1 (2)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -898,9 +898,9 @@ GameObject:
   - 4: {fileID: 279401358}
   - 212: {fileID: 279401357}
   - 60: {fileID: 279401359}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: platform 3
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1095,7 +1095,7 @@ GameObject:
   - 212: {fileID: 298435933}
   m_Layer: 0
   m_Name: grass 2 (4)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1157,7 +1157,7 @@ GameObject:
   - 212: {fileID: 322502942}
   m_Layer: 0
   m_Name: trap 4 (4)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1219,7 +1219,7 @@ GameObject:
   - 212: {fileID: 357414233}
   m_Layer: 0
   m_Name: trees branch foreground 4
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1281,7 +1281,7 @@ GameObject:
   - 212: {fileID: 455279576}
   m_Layer: 0
   m_Name: fog (2)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1343,7 +1343,7 @@ GameObject:
   - 212: {fileID: 476227768}
   m_Layer: 0
   m_Name: trees branch foreground 1 (white) (1)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1405,7 +1405,7 @@ GameObject:
   - 212: {fileID: 487750669}
   m_Layer: 0
   m_Name: grass 2
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1467,7 +1467,7 @@ GameObject:
   - 212: {fileID: 529781450}
   m_Layer: 0
   m_Name: tree foreground 1 (white)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1529,7 +1529,7 @@ GameObject:
   - 212: {fileID: 560881677}
   m_Layer: 0
   m_Name: trees branch foreground 1 (white)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1653,9 +1653,9 @@ GameObject:
   - 4: {fileID: 585596970}
   - 212: {fileID: 585596969}
   - 60: {fileID: 585596971}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: platform 11
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1781,7 +1781,7 @@ GameObject:
   - 212: {fileID: 592390381}
   m_Layer: 0
   m_Name: trap 1 (1)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1842,9 +1842,9 @@ GameObject:
   - 4: {fileID: 634454013}
   - 212: {fileID: 634454012}
   - 60: {fileID: 634454014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ground 1
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2043,7 +2043,7 @@ GameObject:
   - 212: {fileID: 646206402}
   m_Layer: 0
   m_Name: trap 3 (1)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2105,7 +2105,7 @@ GameObject:
   - 212: {fileID: 648952940}
   m_Layer: 0
   m_Name: tree foreground 4
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2167,7 +2167,7 @@ GameObject:
   - 212: {fileID: 650264344}
   m_Layer: 0
   m_Name: trap 4 (2)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2229,7 +2229,7 @@ GameObject:
   - 212: {fileID: 678801671}
   m_Layer: 0
   m_Name: grass 1 (1)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2420,9 +2420,9 @@ GameObject:
   - 212: {fileID: 722331600}
   - 68: {fileID: 722331603}
   - 60: {fileID: 722331602}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ground 6
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2631,7 +2631,7 @@ GameObject:
   - 212: {fileID: 723171138}
   m_Layer: 0
   m_Name: trap 3 (3)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2692,9 +2692,9 @@ GameObject:
   - 4: {fileID: 754055081}
   - 212: {fileID: 754055080}
   - 60: {fileID: 754055082}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ground 4
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2827,9 +2827,9 @@ GameObject:
   - 4: {fileID: 756300325}
   - 212: {fileID: 756300324}
   - 60: {fileID: 756300326}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ground 8
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2988,7 +2988,7 @@ GameObject:
   - 212: {fileID: 771361658}
   m_Layer: 0
   m_Name: grass 1
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3196,7 +3196,7 @@ Transform:
   - {fileID: 187474912}
   - {fileID: 1470351596}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &981732656
 GameObject:
   m_ObjectHideFlags: 0
@@ -3208,7 +3208,7 @@ GameObject:
   - 212: {fileID: 981732657}
   m_Layer: 0
   m_Name: trees branch foreground 3 (white)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3415,7 +3415,7 @@ GameObject:
   - 212: {fileID: 1152574770}
   m_Layer: 0
   m_Name: trap 3 (2)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3604,7 +3604,7 @@ GameObject:
   - 212: {fileID: 1257481233}
   m_Layer: 0
   m_Name: trap 5
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3770,7 +3770,7 @@ GameObject:
   - 212: {fileID: 1313171892}
   m_Layer: 0
   m_Name: tree foreground 4 (2)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3832,7 +3832,7 @@ GameObject:
   - 212: {fileID: 1341226359}
   m_Layer: 0
   m_Name: trap 3 (4)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3894,7 +3894,7 @@ GameObject:
   - 212: {fileID: 1370328873}
   m_Layer: 0
   m_Name: tree foreground 2
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3955,15 +3955,15 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1553543208}
     m_Modifications:
     - target: {fileID: 4000013179232990, guid: d8d8b112bbb80204eac3c20005638765, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 42.719547
+      value: 33.338467
       objectReference: {fileID: 0}
     - target: {fileID: 4000013179232990, guid: d8d8b112bbb80204eac3c20005638765, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.9384665
+      value: -1.0817518
       objectReference: {fileID: 0}
     - target: {fileID: 4000013179232990, guid: d8d8b112bbb80204eac3c20005638765, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3987,11 +3987,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013179232990, guid: d8d8b112bbb80204eac3c20005638765, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000011552954008, guid: d8d8b112bbb80204eac3c20005638765, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014194007718, guid: d8d8b112bbb80204eac3c20005638765, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8d8b112bbb80204eac3c20005638765, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1428051148 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000013179232990, guid: d8d8b112bbb80204eac3c20005638765,
+    type: 2}
+  m_PrefabInternal: {fileID: 1428051147}
 --- !u!1 &1465328540
 GameObject:
   m_ObjectHideFlags: 0
@@ -4065,7 +4078,7 @@ GameObject:
   - 212: {fileID: 1467926386}
   m_Layer: 0
   m_Name: tree foreground 3 (white)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4229,7 +4242,7 @@ GameObject:
   - 212: {fileID: 1473562818}
   m_Layer: 0
   m_Name: trap 4
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4291,7 +4304,7 @@ GameObject:
   - 212: {fileID: 1489622498}
   m_Layer: 0
   m_Name: trap 2 (1)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4353,7 +4366,7 @@ GameObject:
   - 212: {fileID: 1496769380}
   m_Layer: 0
   m_Name: tree foreground 4 (1)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4414,9 +4427,9 @@ GameObject:
   - 4: {fileID: 1521952310}
   - 212: {fileID: 1521952309}
   - 60: {fileID: 1521952311}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ground 6 (1)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4690,9 +4703,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1523570826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a62942d9af3f36d448094c6ed1f214dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d8238cc53530b64fbb7828c3d3bb591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1552094396
 GameObject:
   m_ObjectHideFlags: 0
@@ -4703,9 +4718,9 @@ GameObject:
   - 4: {fileID: 1552094398}
   - 212: {fileID: 1552094397}
   - 60: {fileID: 1552094399}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: platform 2
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4863,6 +4878,7 @@ Transform:
   - {fileID: 1471522605}
   - {fileID: 687853472}
   - {fileID: 1402322066}
+  - {fileID: 1428051148}
   m_Father: {fileID: 831496228}
   m_RootOrder: 0
 --- !u!1 &1588230468
@@ -4938,7 +4954,7 @@ GameObject:
   - 212: {fileID: 1591144863}
   m_Layer: 0
   m_Name: trap 2 (2)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4999,9 +5015,9 @@ GameObject:
   - 4: {fileID: 1607559876}
   - 212: {fileID: 1607559875}
   - 60: {fileID: 1607559877}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ground 3
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5213,7 +5229,7 @@ GameObject:
   - 212: {fileID: 1720721579}
   m_Layer: 0
   m_Name: trees branch foreground 2
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5275,7 +5291,7 @@ GameObject:
   - 212: {fileID: 1784098810}
   m_Layer: 0
   m_Name: trees branch foreground 2 (white)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5337,7 +5353,7 @@ GameObject:
   - 212: {fileID: 1841028394}
   m_Layer: 0
   m_Name: fog
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5398,9 +5414,9 @@ GameObject:
   - 4: {fileID: 1845309504}
   - 212: {fileID: 1845309503}
   - 60: {fileID: 1845309505}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: platform 14
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5559,7 +5575,7 @@ GameObject:
   - 212: {fileID: 1847844939}
   m_Layer: 0
   m_Name: chain 2
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5620,9 +5636,9 @@ GameObject:
   - 4: {fileID: 1853444543}
   - 212: {fileID: 1853444542}
   - 60: {fileID: 1853444544}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: platform 1
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5799,7 +5815,7 @@ GameObject:
   - 212: {fileID: 1866757530}
   m_Layer: 0
   m_Name: trap 1
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5861,7 +5877,7 @@ GameObject:
   - 212: {fileID: 1872695152}
   m_Layer: 0
   m_Name: fog (1)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5951,6 +5967,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 1000014194007718, guid: d8d8b112bbb80204eac3c20005638765, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8d8b112bbb80204eac3c20005638765, type: 2}
   m_IsPrefabParent: 0
@@ -5965,7 +5985,7 @@ GameObject:
   - 212: {fileID: 1889550863}
   m_Layer: 0
   m_Name: tree foreground 2 (white)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6089,7 +6109,7 @@ GameObject:
   - 212: {fileID: 1900603853}
   m_Layer: 0
   m_Name: trap 4 (1)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6214,7 +6234,7 @@ GameObject:
   - 212: {fileID: 1939611518}
   m_Layer: 0
   m_Name: fog (3)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6338,7 +6358,7 @@ GameObject:
   - 114: {fileID: 1948522014}
   m_Layer: 0
   m_Name: Start Location
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6361,12 +6381,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1948522013}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.823467, y: -0.19293368, z: 0}
+  m_LocalPosition: {x: -1.29, y: -3.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &1960990556
 GameObject:
   m_ObjectHideFlags: 0
@@ -6377,9 +6397,9 @@ GameObject:
   - 4: {fileID: 1960990558}
   - 212: {fileID: 1960990557}
   - 60: {fileID: 1960990559}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: platform 4
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6493,7 +6513,7 @@ GameObject:
   - 212: {fileID: 1967956302}
   m_Layer: 0
   m_Name: trap 3
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6555,7 +6575,7 @@ GameObject:
   - 212: {fileID: 2012690575}
   m_Layer: 0
   m_Name: grass 2 (3)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6617,7 +6637,7 @@ GameObject:
   - 212: {fileID: 2015756061}
   m_Layer: 0
   m_Name: trap 3 (5)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6678,9 +6698,9 @@ GameObject:
   - 4: {fileID: 2057697972}
   - 212: {fileID: 2057697971}
   - 60: {fileID: 2057697973}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ground 1 (2)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6879,7 +6899,7 @@ GameObject:
   - 212: {fileID: 2072932714}
   m_Layer: 0
   m_Name: grass 2 (2)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7003,7 +7023,7 @@ GameObject:
   - 212: {fileID: 2094835003}
   m_Layer: 0
   m_Name: tree foreground 4 (3)
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7093,6 +7113,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 1000014194007718, guid: d8d8b112bbb80204eac3c20005638765, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8d8b112bbb80204eac3c20005638765, type: 2}
   m_IsPrefabParent: 0
@@ -7106,9 +7130,9 @@ GameObject:
   - 4: {fileID: 2143387271}
   - 212: {fileID: 2143387270}
   - 60: {fileID: 2143387272}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ground 5
-  m_TagString: FIXER
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

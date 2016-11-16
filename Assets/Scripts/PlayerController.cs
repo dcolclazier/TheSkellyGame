@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
         Vector3 trans;
         Rigidbody2D rb;
     public float Speed = 10f;
-    public float Jump = 1500f;
+    public float Jump = 300;
     public float isGroundedRayLength = 0.1f;
     public LayerMask groundLayer;
 
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour {
             anim.SetBool("Death", true);
             StartCoroutine(revive(5));
         }
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space)/* && isGrounded*/)
         {                      
             print("Jump");
             rb.AddForce(Vector2.up * Jump);
