@@ -224,6 +224,7 @@ GameObject:
   - 4: {fileID: 26656529}
   - 212: {fileID: 26656528}
   - 60: {fileID: 26656530}
+  - 61: {fileID: 26656531}
   m_Layer: 9
   m_Name: ground 1 (1)
   m_TagString: Untagged
@@ -283,7 +284,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 26656527}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -414,6 +415,20 @@ PolygonCollider2D:
       - {x: 9.599999, y: -1.035}
       - {x: 9.599999, y: 0.16499999}
       - {x: 9.58, y: 0.185}
+--- !u!61 &26656531
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 26656527}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.8200278}
+  serializedVersion: 2
+  m_Size: {x: 19.2, y: 0.42994404}
 --- !u!1 &27220715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,6 +1857,7 @@ GameObject:
   - 4: {fileID: 634454013}
   - 212: {fileID: 634454012}
   - 60: {fileID: 634454014}
+  - 61: {fileID: 634454015}
   m_Layer: 9
   m_Name: ground 1
   m_TagString: Untagged
@@ -1901,7 +1917,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 634454011}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2032,6 +2048,20 @@ PolygonCollider2D:
       - {x: 9.599999, y: -1.035}
       - {x: 9.599999, y: 0.16499999}
       - {x: 9.58, y: 0.185}
+--- !u!61 &634454015
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 634454011}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.8200283}
+  serializedVersion: 2
+  m_Size: {x: 19.2, y: 0.42994308}
 --- !u!1 &646206401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2420,6 +2450,7 @@ GameObject:
   - 212: {fileID: 722331600}
   - 68: {fileID: 722331603}
   - 60: {fileID: 722331602}
+  - 61: {fileID: 722331604}
   m_Layer: 9
   m_Name: ground 6
   m_TagString: Untagged
@@ -2479,7 +2510,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 722331599}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2620,6 +2651,20 @@ EdgeCollider2D:
   - {x: 8.216454, y: -0.2787361}
   - {x: 8.522457, y: -0.5039339}
   - {x: 8.855667, y: -0.55293226}
+--- !u!61 &722331604
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 722331599}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.7250781}
+  serializedVersion: 2
+  m_Size: {x: 19.2, y: 0.2298441}
 --- !u!1 &723171137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2692,6 +2737,7 @@ GameObject:
   - 4: {fileID: 754055081}
   - 212: {fileID: 754055080}
   - 60: {fileID: 754055082}
+  - 61: {fileID: 754055083}
   m_Layer: 9
   m_Name: ground 4
   m_TagString: Untagged
@@ -2751,7 +2797,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 754055079}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2817,6 +2863,20 @@ PolygonCollider2D:
       - {x: 3.745, y: -1.13}
       - {x: 3.685, y: -1.01}
       - {x: 3.675, y: -0.9}
+--- !u!61 &754055083
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 754055079}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.871819}
+  serializedVersion: 2
+  m_Size: {x: 9.15, y: 0.5363617}
 --- !u!1 &756300323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,6 +2887,7 @@ GameObject:
   - 4: {fileID: 756300325}
   - 212: {fileID: 756300324}
   - 60: {fileID: 756300326}
+  - 61: {fileID: 756300327}
   m_Layer: 9
   m_Name: ground 8
   m_TagString: Untagged
@@ -2886,7 +2947,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 756300323}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2977,6 +3038,20 @@ PolygonCollider2D:
       - {x: 6.855, y: -1.0649999}
       - {x: 6.855, y: -1.045}
       - {x: 6.795, y: -0.995}
+--- !u!61 &756300327
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 756300323}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.8372927}
+  serializedVersion: 2
+  m_Size: {x: 15.09, y: 0.45541477}
 --- !u!1 &771361657
 GameObject:
   m_ObjectHideFlags: 0
@@ -4427,6 +4502,7 @@ GameObject:
   - 4: {fileID: 1521952310}
   - 212: {fileID: 1521952309}
   - 60: {fileID: 1521952311}
+  - 61: {fileID: 1521952312}
   m_Layer: 9
   m_Name: ground 6 (1)
   m_TagString: Untagged
@@ -4486,7 +4562,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1521952308}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -4607,6 +4683,20 @@ PolygonCollider2D:
       - {x: 9.17, y: -0.78}
       - {x: 9.15, y: -0.76}
       - {x: 8.86, y: -0.55}
+--- !u!61 &1521952312
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1521952308}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.7250781}
+  serializedVersion: 2
+  m_Size: {x: 19.2, y: 0.2298441}
 --- !u!1 &1523570826
 GameObject:
   m_ObjectHideFlags: 0
@@ -4707,7 +4797,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  offset: {x: 0, y: 0, z: 0}
+  damping: 1
+  lookAheadFactor: 3
+  lookAheadReturnSpeed: 0.5
+  lookAheadMoveThreshold: 0.1
 --- !u!1 &1552094396
 GameObject:
   m_ObjectHideFlags: 0
@@ -5015,6 +5108,7 @@ GameObject:
   - 4: {fileID: 1607559876}
   - 212: {fileID: 1607559875}
   - 60: {fileID: 1607559877}
+  - 61: {fileID: 1607559878}
   m_Layer: 9
   m_Name: ground 3
   m_TagString: Untagged
@@ -5074,7 +5168,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1607559874}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -5156,6 +5250,20 @@ PolygonCollider2D:
       - {x: 5.64, y: -0.93}
       - {x: 5.64, y: 0.26999998}
       - {x: 5.62, y: 0.29}
+--- !u!61 &1607559878
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1607559874}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.7682371}
+  serializedVersion: 2
+  m_Size: {x: 11.28, y: 0.32352543}
 --- !u!1 &1680380939
 GameObject:
   m_ObjectHideFlags: 0
@@ -6698,6 +6806,7 @@ GameObject:
   - 4: {fileID: 2057697972}
   - 212: {fileID: 2057697971}
   - 60: {fileID: 2057697973}
+  - 61: {fileID: 2057697974}
   m_Layer: 9
   m_Name: ground 1 (2)
   m_TagString: Untagged
@@ -6757,7 +6866,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2057697970}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -6888,6 +6997,20 @@ PolygonCollider2D:
       - {x: 9.599999, y: -1.035}
       - {x: 9.599999, y: 0.16499999}
       - {x: 9.58, y: 0.185}
+--- !u!61 &2057697974
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2057697970}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.8200288}
+  serializedVersion: 2
+  m_Size: {x: 19.2, y: 0.42994213}
 --- !u!1 &2072932713
 GameObject:
   m_ObjectHideFlags: 0
@@ -7130,6 +7253,7 @@ GameObject:
   - 4: {fileID: 2143387271}
   - 212: {fileID: 2143387270}
   - 60: {fileID: 2143387272}
+  - 61: {fileID: 2143387273}
   m_Layer: 9
   m_Name: ground 5
   m_TagString: Untagged
@@ -7189,7 +7313,7 @@ PolygonCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2143387269}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -7316,3 +7440,17 @@ PolygonCollider2D:
       - {x: 8.95, y: -0.84999996}
       - {x: 8.92, y: -0.63}
       - {x: 8.86, y: -0.55}
+--- !u!61 &2143387273
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143387269}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.7423415}
+  serializedVersion: 2
+  m_Size: {x: 19.2, y: 0.25531673}
