@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -9,16 +8,15 @@ public class PlayerMovement : NetworkBehaviour {
     public LayerMask GroundLayer;
     public Transform GroundCheck;
     private float GroundCheckRadius = 0.2f;
-    private bool _isGrounded = false;
+    private bool _isGrounded;
     private Animator _anim;
-    
-    //private float isGroundedRayLength = 0.1f;
+    private float _currentHorizInput;
 
-    public float MovementInput { get; private set; }
     public Rigidbody2D Rigidbody { get; private set; }
 
     public void Awake() {
         Rigidbody = GetComponent<Rigidbody2D>();
+
         _anim = GetComponent<Animator>();
     }
 
@@ -26,15 +24,26 @@ public class PlayerMovement : NetworkBehaviour {
 
         Rigidbody.velocity = Vector2.zero;
     }
+    
+    [Command]
+    private void CmdUpdateAnimations(float direction) {
+        RpcUpdateAnimations(direction);
+    }
 
+    [ClientRpc]
+    public void RpcUpdateAnimations(float direction) {
+        _anim.SetBool("MovingRight", direction > 0);
+        _anim.SetBool("MovingLeft", direction < 0);
+    }
     private void Update() {
         if (!isLocalPlayer) return;
-        _isGrounded = Physics2D.OverlapCircle(GroundCheck.position, GroundCheckRadius, GroundLayer);
-        //_anim.SetBool("Grounded",_isGrounded);
-        
 
+        _currentHorizInput = Input.GetAxis("Horizontal");
+        _isGrounded = Physics2D.OverlapCircle(GroundCheck.position, GroundCheckRadius, GroundLayer);
+
+        CmdUpdateAnimations(_currentHorizInput);
+        
         if (!_anim.GetBool("Death")) {
-            _anim.SetFloat("Speed", Input.GetAxisRaw("Horizontal"));
         }
         if (Input.GetKeyDown(KeyCode.E)) {
             _anim.SetBool("Death", true);
@@ -44,33 +53,21 @@ public class PlayerMovement : NetworkBehaviour {
             Rigidbody.AddForce(Vector2.up * Jump);
         }
     }
-    //public bool isGrounded
-    //{
-    //    get
-    //    {
-    //        Vector3 position = transform.position;
-    //        position.y = GetComponent<Collider2D>().bounds.min.y + 0.1f;
-    //        float length = isGroundedRayLength + 0.1f;
-    //        Debug.DrawRay(position, Vector3.down * length);
-    //        bool grounded = Physics2D.Raycast(position, Vector3.down, length, GroundLayer.value);
-    //        return grounded;
-    //    }
-    //}
+
     IEnumerator revive(int time)
     {
         yield return new WaitForSeconds(time);
         _anim.SetBool("Death", false);
     }
+
     private void FixedUpdate() {
         if(!isLocalPlayer) return;
 
         Move();
     }
-    public void Move() {
 
-        var move = Input.GetAxis("Horizontal");
-        Rigidbody.velocity = new Vector2(move * Speed, Rigidbody.velocity.y);
-        
+    public void Move() {
+        Rigidbody.velocity = new Vector2(_currentHorizInput * Speed, Rigidbody.velocity.y);
     }
     
     

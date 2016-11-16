@@ -43,9 +43,8 @@ GameObject:
   - 114: {fileID: 114000011840615106}
   - 58: {fileID: 58000013325939620}
   - 61: {fileID: 61000010585473184}
-  - 148: {fileID: 148000011816831444}
   m_Layer: 10
-  m_Name: Player
+  m_Name: PlayerTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +117,7 @@ Animator:
   m_GameObject: {fileID: 1000013073532230}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f72a1e75bf52dba4da2c69b4b4faf90d, type: 2}
+  m_Controller: {fileID: 9100000, guid: c17aa9583f1bbac46b8e6176dd448c81, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -140,22 +139,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 72
-    i1: 37
-    i2: 116
-    i3: 215
-    i4: 220
-    i5: 232
-    i6: 56
-    i7: 180
-    i8: 187
-    i9: 20
-    i10: 253
-    i11: 144
-    i12: 56
-    i13: 102
-    i14: 185
-    i15: 46
+    i0: 164
+    i1: 109
+    i2: 117
+    i3: 196
+    i4: 154
+    i5: 53
+    i6: 136
+    i7: 20
+    i8: 139
+    i9: 195
+    i10: 144
+    i11: 77
+    i12: 15
+    i13: 32
+    i14: 226
+    i15: 186
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &114000011840615106
@@ -171,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 2
   m_SendInterval: 0.1
-  m_SyncRotationAxis: 3
+  m_SyncRotationAxis: 0
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
   m_MovementTheshold: 0.001
@@ -211,18 +210,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   GroundCheck: {fileID: 4000011878430718}
---- !u!148 &148000011816831444
-NetworkView:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013073532230}
-  m_Enabled: 1
-  m_StateSynchronization: 1
-  m_Observed: {fileID: 114000013397098474}
-  m_ViewID:
-    m_ID: 0
-    m_Type: 0
+  CurrentMove: 0
 --- !u!212 &212000012750238798
 SpriteRenderer:
   m_ObjectHideFlags: 1

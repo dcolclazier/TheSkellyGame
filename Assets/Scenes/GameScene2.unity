@@ -563,6 +563,7 @@ GameObject:
   - 4: {fileID: 92343235}
   - 212: {fileID: 92343234}
   - 60: {fileID: 92343236}
+  - 251: {fileID: 92343237}
   m_Layer: 9
   m_Name: platform 8
   m_TagString: Untagged
@@ -626,7 +627,7 @@ PolygonCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
@@ -710,6 +711,23 @@ PolygonCollider2D:
       - {x: 0.545, y: -1.095}
       - {x: 0.66499996, y: -1.015}
       - {x: 0.84499997, y: -0.885}
+--- !u!251 &92343237
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 92343233}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &97040704
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +931,7 @@ GameObject:
   - 4: {fileID: 279401358}
   - 212: {fileID: 279401357}
   - 60: {fileID: 279401359}
+  - 251: {fileID: 279401360}
   m_Layer: 9
   m_Name: platform 3
   m_TagString: Untagged
@@ -976,7 +995,7 @@ PolygonCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
@@ -1037,6 +1056,23 @@ PolygonCollider2D:
       - {x: 0.205, y: -1.01}
       - {x: 0.36499998, y: -0.95}
       - {x: 0.825, y: -0.71}
+--- !u!251 &279401360
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 279401356}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &282532183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1668,6 +1704,7 @@ GameObject:
   - 4: {fileID: 585596970}
   - 212: {fileID: 585596969}
   - 60: {fileID: 585596971}
+  - 251: {fileID: 585596972}
   m_Layer: 9
   m_Name: platform 11
   m_TagString: Untagged
@@ -1731,7 +1768,7 @@ PolygonCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
@@ -1785,6 +1822,23 @@ PolygonCollider2D:
       - {x: 1.65, y: -0.375}
       - {x: 1.77, y: -0.375}
       - {x: 2.1, y: -0.33499998}
+--- !u!251 &585596972
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 585596968}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &592390380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,6 +2369,80 @@ Transform:
   m_PrefabParentObject: {fileID: 4000013179232990, guid: d8d8b112bbb80204eac3c20005638765,
     type: 2}
   m_PrefabInternal: {fileID: 2139792251}
+--- !u!1 &704843335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 704843338}
+  - 114: {fileID: 704843337}
+  - 114: {fileID: 704843336}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &704843336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 704843335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a1dd5239eeb67548b90b0e3f9efe612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameIsFinished: 0
+--- !u!114 &704843337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 704843335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!4 &704843338
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 704843335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5045327, y: -2.6977723, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &715495242
 GameObject:
   m_ObjectHideFlags: 0
@@ -4811,6 +4939,7 @@ GameObject:
   - 4: {fileID: 1552094398}
   - 212: {fileID: 1552094397}
   - 60: {fileID: 1552094399}
+  - 251: {fileID: 1552094400}
   m_Layer: 9
   m_Name: platform 2
   m_TagString: Untagged
@@ -4874,7 +5003,7 @@ PolygonCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
@@ -4932,6 +5061,23 @@ PolygonCollider2D:
       - {x: 0.695, y: -0.85499996}
       - {x: 0.875, y: -0.72499996}
       - {x: 1.145, y: -0.49499997}
+--- !u!251 &1552094400
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1552094396}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1553543207
 GameObject:
   m_ObjectHideFlags: 0
@@ -5522,6 +5668,7 @@ GameObject:
   - 4: {fileID: 1845309504}
   - 212: {fileID: 1845309503}
   - 60: {fileID: 1845309505}
+  - 251: {fileID: 1845309506}
   m_Layer: 9
   m_Name: platform 14
   m_TagString: Untagged
@@ -5585,7 +5732,7 @@ PolygonCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
@@ -5672,6 +5819,23 @@ PolygonCollider2D:
       - {x: 1.81, y: -0.45}
       - {x: 1.93, y: -0.45}
       - {x: 2.26, y: -0.41}
+--- !u!251 &1845309506
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1845309502}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1847844938
 GameObject:
   m_ObjectHideFlags: 0
@@ -5744,6 +5908,7 @@ GameObject:
   - 4: {fileID: 1853444543}
   - 212: {fileID: 1853444542}
   - 60: {fileID: 1853444544}
+  - 251: {fileID: 1853444545}
   m_Layer: 9
   m_Name: platform 1
   m_TagString: Untagged
@@ -5807,7 +5972,7 @@ PolygonCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
@@ -5850,6 +6015,23 @@ PolygonCollider2D:
       - {x: 0.28, y: -0.89}
       - {x: 0.34, y: -0.83}
       - {x: 0.35999998, y: -0.74}
+--- !u!251 &1853444545
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1853444541}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1861334477
 GameObject:
   m_ObjectHideFlags: 0
@@ -6505,6 +6687,7 @@ GameObject:
   - 4: {fileID: 1960990558}
   - 212: {fileID: 1960990557}
   - 60: {fileID: 1960990559}
+  - 251: {fileID: 1960990560}
   m_Layer: 9
   m_Name: platform 4
   m_TagString: Untagged
@@ -6568,7 +6751,7 @@ PolygonCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
@@ -6610,6 +6793,23 @@ PolygonCollider2D:
       - {x: 0.265, y: -0.815}
       - {x: 0.375, y: -0.615}
       - {x: 0.45499998, y: -0.505}
+--- !u!251 &1960990560
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1960990556}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &1967956301
 GameObject:
   m_ObjectHideFlags: 0

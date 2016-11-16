@@ -192,8 +192,8 @@ public class MultiplayerManager : NetworkLobbyManager {
 
         if (CurrentlyMatchmaking) {
             matchMaker.DestroyMatch(CurrentMatchInfo.networkId, 0, OnDestroyMatch);
-            ColorsInUse.Clear();
             StopHost();
+            ColorsInUse.Clear();
         }
         else if(NetworkServer.active) StopHost();
         else StopClient();
