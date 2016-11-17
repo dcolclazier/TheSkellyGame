@@ -3,73 +3,72 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class PlayerMovement : NetworkBehaviour {
-    public Rigidbody2D Rigidbody;
     public float Speed = 5.0f;
-    public float Jump = 1500f;
+    public float Jump = 5f;
     public LayerMask GroundLayer;
-
+    public Transform GroundCheck;
+    private float GroundCheckRadius = 0.2f;
+    private bool _isGrounded;
     private Animator _anim;
-    private float isGroundedRayLength = 0.1f;
+    private float _currentHorizInput;
 
-    public float MovementInput { get; private set; }
+    public Rigidbody2D Rigidbody { get; private set; }
 
     public void Awake() {
         Rigidbody = GetComponent<Rigidbody2D>();
-        _anim = GetComponent<Animator>();
 
+        _anim = GetComponent<Animator>();
     }
 
     public void SetDefaults() {
 
         Rigidbody.velocity = Vector2.zero;
     }
+    
+    [Command]
+    private void CmdUpdateAnimations(float direction) {
+        RpcUpdateAnimations(direction);
+    }
 
+    [ClientRpc]
+    public void RpcUpdateAnimations(float direction) {
+        _anim.SetBool("MovingRight", direction > 0);
+        _anim.SetBool("MovingLeft", direction < 0);
+    }
     private void Update() {
         if (!isLocalPlayer) return;
 
+        _currentHorizInput = Input.GetAxis("Horizontal");
+        _isGrounded = Physics2D.OverlapCircle(GroundCheck.position, GroundCheckRadius, GroundLayer);
+
+        CmdUpdateAnimations(_currentHorizInput);
+        
         if (!_anim.GetBool("Death")) {
-            _anim.SetFloat("Speed", Input.GetAxisRaw("Horizontal"));
-            MovementInput = Input.GetAxisRaw("Horizontal");
         }
         if (Input.GetKeyDown(KeyCode.E)) {
             _anim.SetBool("Death", true);
             StartCoroutine(revive(5));
         }
-        if (Input.GetKeyDown(KeyCode.Space)/* && isGrounded*/) {
-            //Rigidbody.AddForce(Vector2.up * Jump);
-            //Rigidbody.velocity += new Vector2(0, Jump);
+        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded) {
             Rigidbody.AddForce(Vector2.up * Jump);
         }
-        //MovementInput = Input.GetAxis("Horizontal");
     }
-    public bool isGrounded
-    {
-        get
-        {
-            Vector3 position = transform.position;
-            position.y = GetComponent<Collider2D>().bounds.min.y + 0.1f;
-            float length = isGroundedRayLength + 0.1f;
-            Debug.DrawRay(position, Vector3.down * length);
-            bool grounded = Physics2D.Raycast(position, Vector3.down, length, GroundLayer.value);
-            return grounded;
-        }
-    }
+
     IEnumerator revive(int time)
     {
         yield return new WaitForSeconds(time);
         _anim.SetBool("Death", false);
     }
+
     private void FixedUpdate() {
         if(!isLocalPlayer) return;
+
         Move();
-        Turn();
-    }
-    public void Move() {
-        Vector2 movement = transform.right * MovementInput * Speed * Time.fixedDeltaTime;
-        Rigidbody.MovePosition((Rigidbody.position + movement));
     }
 
-    public void Turn() {
-        
+    public void Move() {
+        Rigidbody.velocity = new Vector2(_currentHorizInput * Speed, Rigidbody.velocity.y);
     }
+    
+    
 }
