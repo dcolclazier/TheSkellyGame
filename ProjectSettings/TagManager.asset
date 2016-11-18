@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - FIXER
+  - player_PREFAB
   layers:
   - Default
   - TransparentFX

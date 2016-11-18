@@ -87,6 +87,7 @@ public class MultiplayerManager : NetworkLobbyManager {
 
     public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId) {
         var prefab = Instantiate(gamePlayerPrefab.gameObject) as GameObject;
+        prefab.tag = "player_PREFAB";
         prefab.GetComponent<SpriteRenderer>().color = _lobbyPlayers[conn].GetComponent<LobbyPlayer>().PlayerColor;
         _gamePlayers.Add(conn, prefab);
 
