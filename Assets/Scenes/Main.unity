@@ -4027,7 +4027,7 @@ MonoBehaviour:
   m_GamePlayerPrefab: {fileID: 1000013073532230, guid: a46d75c49a3588148bc3904d0f20e2ba,
     type: 2}
   m_LobbyScene: Main
-  m_PlayScene: DaveGameScene
+  m_PlayScene: DaveSandbox
   lobbySlots: []
   StartLobbyGameBtn: {fileID: 995250151}
   MainMenuPanel: {fileID: 860925915}

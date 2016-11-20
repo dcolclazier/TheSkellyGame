@@ -29,20 +29,29 @@ public class GameManager : NetworkBehaviour {
 
     public static void AddPlayer(GameObject player, int playerNumber, Color color, string playerName, int localId) {
 
-        var manager = new PlayerManager {
-            Instance = player,
-            PlayerNumber = playerNumber,
-            PlayerColor = color,
-            PlayerName = playerName,
-            LocalPlayerId = localId
-        };
-        manager.Init();
+        var newManager = player.GetComponent<PlayerManager>();
+        newManager.Player = player;
+        newManager.PlayerNumber = playerNumber;
+        newManager.PlayerColor = color;
+        newManager.PlayerName = playerName;
+        newManager.LocalPlayerId = localId;
+        newManager.Init();
 
-        Players.Add(manager);
+
+        //var manager = new PlayerManager {
+        //    Player = player,
+        //    PlayerNumber = playerNumber,
+        //    PlayerColor = color,
+        //    PlayerName = playerName,
+        //    LocalPlayerId = localId
+        //};
+        //manager.Init();
+        Debug.Log("Adding player.");
+        Players.Add(newManager);
     }
 
     public void RemovePlayer(GameObject player) {
-        var toRemove = Players.FirstOrDefault(p => p.Instance == player);
+        var toRemove = Players.FirstOrDefault(p => p.Player == player);
 
         if (toRemove != null) Players.Remove(toRemove);
     }
@@ -86,7 +95,7 @@ public class GameManager : NetworkBehaviour {
 
     private void EnablePlayerControl() {
         foreach (var playerManager in Players) {
-            playerManager.EnableControl();
+            playerManager.EnablePlayerControl();
         }
 
     }
@@ -114,7 +123,11 @@ public class GameManager : NetworkBehaviour {
 
     private void DisablePlayerControl() {
         foreach (var playerManager in Players) {
-            playerManager.DisableControl();
+            playerManager.DisablePlayerControl();
         }
+    }
+
+    public PlayerManager GetPlayer(GameObject playerGameObject) {
+        return Players.FirstOrDefault(player => player.Player == playerGameObject);
     }
 }

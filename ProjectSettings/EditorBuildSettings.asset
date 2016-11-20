@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene2.unity
   - enabled: 1
     path: Assets/Scenes/DaveGameScene.unity
+  - enabled: 1
+    path: Assets/Scenes/DaveSandbox.unity
