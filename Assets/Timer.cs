@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 
-public class Timer : MonoBehaviour
-{
+public class Timer : MonoBehaviour {
+    private GameManager _manager;
 
     public GameObject[] players;
     int[] winners;
@@ -27,8 +27,10 @@ public class Timer : MonoBehaviour
         
     }
 
-    void Awake()
-    {
+    void Awake() {
+        _manager = GetComponent<GameManager>();
+        if(_manager == null) Debug.Log("Couldn't find game manager...");
+
         if (timer >= 60)
         {
             while (timer > 60)
@@ -79,28 +81,23 @@ public class Timer : MonoBehaviour
         }
     }
 
-    void DisablePlayers()
-    {
-        players = GameObject.FindGameObjectsWithTag("player_PREFAB");
-        for (int x = 0; x < players.Length; x++)
-        {
-            players[x].GetComponent<PlayerMovement>().enabled = false;
-            players[x].GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
-            players[x].GetComponent<Animator>().SetBool("Death", false);
-            StartCoroutine(disableAfterDelay());
-        }
+    void DisablePlayers() {
+        _manager.DisablePlayerControl();
+        _manager.FinishGame();
+        //players = GameObject.FindGameObjectsWithTag("player_PREFAB");
+        //foreach (var player in players) {
+        //    player.GetComponent<PlayerMovement>().enabled = false;
+        //    player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        //    player.GetComponent<Animator>().SetBool("Death", false);
+        //    StartCoroutine(DisableAfterDelay());
+        //}
     }
 
-    IEnumerator disableAfterDelay()
-    {
-        yield return new WaitForSeconds(.1f);
-
-        for (int x = 0; x < players.Length; x++)
-        {
-            players[x].GetComponent<Animator>().SetBool("MovingLeft", false);
-            players[x].GetComponent<Animator>().SetBool("MovingRight", false);
-            print(players[x].gameObject.transform.position.x);
-        }
-        players = players.OrderBy(d => d.gameObject.transform.position.x).ToArray();
-    }
+    //IEnumerator DisableAfterDelay()
+    //{
+    //    yield return new WaitForSeconds(.1f);
+    //    players = GameObject.FindGameObjectsWithTag("player_PREFAB");
+    //    Array.ForEach(players, player => { print(player.gameObject.transform.position.x); });
+    //    players = players.OrderBy(d => d.gameObject.transform.position.x).ToArray();
+    //}
 }

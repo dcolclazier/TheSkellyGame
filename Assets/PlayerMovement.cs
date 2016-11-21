@@ -23,8 +23,8 @@ public class PlayerMovement : NetworkBehaviour {
     }
 
     public void SetDefaults() {
-
-        Rigidbody.velocity = Vector2.zero;
+        Stop();
+        
        
     }
    
@@ -50,6 +50,8 @@ public class PlayerMovement : NetworkBehaviour {
     public void Move() {
         Rigidbody.velocity = new Vector2(_currentHorizInput * Speed, Rigidbody.velocity.y);
     }
-    
-    
+
+    public void Stop() {
+        Rigidbody.velocity = Vector2.zero;
+    }
 }

@@ -46,7 +46,7 @@ public class GameManager : NetworkBehaviour {
         //    LocalPlayerId = localId
         //};
         //manager.Init();
-        Debug.Log("Adding player.");
+        Debug.Log("Adding player: " + newManager.PlayerName);
         Players.Add(newManager);
     }
 
@@ -121,13 +121,30 @@ public class GameManager : NetworkBehaviour {
 
     }
 
-    private void DisablePlayerControl() {
+    public void DisablePlayerControl() {
+        Debug.Log("Disabling all player control");
         foreach (var playerManager in Players) {
             playerManager.DisablePlayerControl();
         }
+        Debug.Log("Player control disabled.");
     }
 
     public PlayerManager GetPlayer(GameObject playerGameObject) {
         return Players.FirstOrDefault(player => player.Player == playerGameObject);
+    }
+
+    public void FinishGame() {
+        var playerFinishOrder = Players.OrderBy(manager => manager.gameObject.transform.position.x).ToList();
+        int i = 1;
+        Debug.Log("Game is over!");
+        foreach (var player in playerFinishOrder) {
+            string placement;
+            if (i == 1) placement = "1st place: ";
+            else if (i == 2) placement = "2nd place: ";
+            else if (i == 3) placement = "3rd place: ";
+            else placement = i + "th place: ";
+            Debug.Log(placement + player.PlayerName);
+
+        }
     }
 }

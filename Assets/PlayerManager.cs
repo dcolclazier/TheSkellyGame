@@ -52,10 +52,12 @@ public class PlayerManager : MonoBehaviour {
     }
     
     public void EnablePlayerControl() {
+        
         _playerMovement.enabled = true;
     }
 
     public void DisablePlayerControl() {
+        _playerMovement.Stop();
         _playerMovement.enabled = false;
     }
 
