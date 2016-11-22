@@ -67,7 +67,7 @@ public class PlayerManager : MonoBehaviour {
         _playerMovement.enabled = false;
         _playerAnimations.OnJustDied();
         _rigidbody.velocity = Vector2.zero;
-        _rigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        //_rigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         
         yield return StartCoroutine(Wait(1));
         if (_playerMovement.hasAuthority) {
