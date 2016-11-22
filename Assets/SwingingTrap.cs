@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Swinging_Trap : MonoBehaviour {
+public class SwingingTrap : MonoBehaviour {
 
     public Transform _respawnPoint;
     private const float RespawnTime = 3;
@@ -9,6 +9,8 @@ public class Swinging_Trap : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D c) {
         var player = GameManager.Instance.GetPlayer(c.gameObject);
+        if (player == null) return;
+
         player.Kill(RespawnTime);
         player.SpawnPoint = _respawnPoint;
     }
