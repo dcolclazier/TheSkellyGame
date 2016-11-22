@@ -250,22 +250,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 164
-    i1: 109
-    i2: 117
-    i3: 196
-    i4: 154
-    i5: 53
-    i6: 136
-    i7: 20
-    i8: 139
-    i9: 195
-    i10: 144
-    i11: 77
-    i12: 15
-    i13: 32
-    i14: 226
-    i15: 186
+    i0: 124
+    i1: 199
+    i2: 221
+    i3: 180
+    i4: 50
+    i5: 158
+    i6: 251
+    i7: 84
+    i8: 186
+    i9: 93
+    i10: 108
+    i11: 161
+    i12: 233
+    i13: 122
+    i14: 39
+    i15: 124
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!114 &114000011352732364
@@ -411,6 +411,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 7.410302, y: 3.528707}
   m_SizeDelta: {x: 1.16, y: 2.68}
   m_Pivot: {x: 0.5, y: 0.5}
