@@ -19,3 +19,5 @@ EditorBuildSettings:
     path: Assets/Scenes/DaveGameScene.unity
   - enabled: 1
     path: Assets/Scenes/DaveSandbox.unity
+  - enabled: 1
+    path: Assets/Scenes/Raea's Scene.unity
