@@ -34,7 +34,11 @@ public class PlayerMovement : NetworkBehaviour {
         _currentHorizInput = Input.GetAxis("Horizontal");
         _isGrounded = Physics2D.OverlapCircle(GroundCheck.position, GroundCheckRadius, GroundLayer);
 
-        
+        if (Input.GetKeyDown(KeyCode.E)) {
+            var player = GameManager.Instance.GetPlayer(gameObject);
+            player.Kill(2);
+            player.SpawnPoint = player.gameObject.transform;
+        }
         
         if (Input.GetKeyDown(KeyCode.Space) && _isGrounded) {
             Rigidbody.AddForce(Vector2.up * Jump);
