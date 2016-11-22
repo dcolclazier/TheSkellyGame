@@ -11,13 +11,6 @@ public class PlayerHealth : NetworkBehaviour {
     public float CurrentHealth { get { return _currentHealth;} }
     [SyncVar] private bool _justDied;
 
-    private PolygonCollider2D _collider;
-
-    void Awake() {
-        _collider = GetComponent<PolygonCollider2D>();
-        //SetDefaults();
-    }
-
     public void DoDamage(float amount) {
         _currentHealth -= amount;
 
@@ -48,19 +41,7 @@ public class PlayerHealth : NetworkBehaviour {
         //DisablePlayerMovement();
         //SetPlayerActive(false);
     }
-
-    //private void DisablePlayerMovement() {
-    //    throw new System.NotImplementedException();
-    //}
-
-    //private void SetPlayerActive(bool active) {
-
-    //    _collider.enabled = active;
-
-    //    if(active) _Manager.EnablePlayerControl();
-    //    else _Manager.DisablePlayerControl();
-    //}
-
+    
     public void SetDefaults() {
         _currentHealth = _StartingHealth;
         _justDied = false;
