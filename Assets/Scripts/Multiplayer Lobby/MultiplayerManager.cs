@@ -19,8 +19,7 @@ public class MultiplayerManager : NetworkLobbyManager {
     public static MultiplayerManager Instance;
 
     public MatchInfo CurrentMatchInfo { get; private set; }
-
-
+    public RectTransform ActivePanel { get {return _currentPanel;} }
 
     public RectTransform StartLobbyGameBtn;
     public RectTransform MainMenuPanel;
@@ -87,6 +86,7 @@ public class MultiplayerManager : NetworkLobbyManager {
 
     public override GameObject OnLobbyServerCreateGamePlayer(NetworkConnection conn, short playerControllerId) {
         var prefab = Instantiate(gamePlayerPrefab.gameObject) as GameObject;
+        //prefab.tag = "player_PREFAB";
         prefab.GetComponent<SpriteRenderer>().color = _lobbyPlayers[conn].GetComponent<LobbyPlayer>().PlayerColor;
         _gamePlayers.Add(conn, prefab);
 
