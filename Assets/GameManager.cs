@@ -136,13 +136,13 @@ public class GameManager : NetworkBehaviour {
     }
 
     public void FinishGame() {
-        var playerFinishOrder = Players.OrderBy(manager => manager.gameObject.transform.position.x).ToList();
-        int i = 1;
+        var playerFinishOrder = Players.OrderByDescending(manager => manager.gameObject.transform.position.x).ToList();
+        int i = 0;
         Debug.Log("Game is over!");
         PlayerStandings.enabled = true;
         foreach (var player in playerFinishOrder) {
             string placement;
-            if (i == 1) placement = "1st place: ";
+            if (++i == 1) placement = "1st place: ";
             else if (i == 2) placement = "2nd place: ";
             else if (i == 3) placement = "3rd place: ";
             else placement = i + "th place: ";

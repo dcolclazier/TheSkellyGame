@@ -19,8 +19,7 @@ public class MultiplayerManager : NetworkLobbyManager {
     public static MultiplayerManager Instance;
 
     public MatchInfo CurrentMatchInfo { get; private set; }
-
-
+    public RectTransform ActivePanel { get {return _currentPanel;} }
 
     public RectTransform StartLobbyGameBtn;
     public RectTransform MainMenuPanel;

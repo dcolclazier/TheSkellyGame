@@ -3,10 +3,9 @@
 public class MainMenuPanel : MonoBehaviour {
 
     public MultiplayerManager NetManager;
-	public void OnClickSinglePlayer()
-    {
-
-    }
+	public void OnClickSinglePlayer() {
+	    NetManager.StartHost();
+	}
 
     public void OnClickMultiPlayer()
     {
@@ -18,7 +17,13 @@ public class MainMenuPanel : MonoBehaviour {
     }
     public void OnClickExit()
     {
-
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_WEBPLAYER
+         //Application.OpenURL(webplayerQuitURL);
+#else
+        Application.Quit();
+#endif
     }
 
 }
