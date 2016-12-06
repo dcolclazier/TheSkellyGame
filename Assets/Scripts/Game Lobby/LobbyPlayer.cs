@@ -49,10 +49,16 @@ public class LobbyPlayer : NetworkLobbyPlayer {
     {
         base.OnStartAuthority();
         Debug.Log("On Start authority");
-        SetupLocalPlayer();
+        if (MultiplayerManager.Instance.ActivePanel == MultiplayerManager.Instance.LobbyPanel)
+            SetupLocalPlayer();
+        else {
+            //This only runs if host is changed during game...
+            Debug.Log("Host was changed during the game...");
+        }
     }
     private void SetupLocalPlayer() {
 
+        
         Debug.Log("Setup local player.");
         NameInput.interactable = true;
         ReadyCheck.interactable = true;

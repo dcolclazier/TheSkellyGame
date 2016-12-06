@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class GameManager : NetworkBehaviour {
     public static GameManager Instance;
     public static List<PlayerManager> Players = new List<PlayerManager>();
 
+    public Text PlayerStandings;
     public CameraControl CameraControl;
 
     [SyncVar] public bool GameIsFinished = false;
@@ -134,17 +136,19 @@ public class GameManager : NetworkBehaviour {
     }
 
     public void FinishGame() {
-        var playerFinishOrder = Players.OrderBy(manager => manager.gameObject.transform.position.x).ToList();
-        int i = 1;
+        var playerFinishOrder = Players.OrderByDescending(manager => manager.gameObject.transform.position.x).ToList();
+        int i = 0;
         Debug.Log("Game is over!");
+        PlayerStandings.enabled = true;
         foreach (var player in playerFinishOrder) {
             string placement;
-            if (i == 1) placement = "1st place: ";
+            if (++i == 1) placement = "1st place: ";
             else if (i == 2) placement = "2nd place: ";
             else if (i == 3) placement = "3rd place: ";
             else placement = i + "th place: ";
             Debug.Log(placement + player.PlayerName);
-
+            PlayerStandings.text += "\n" + placement + player.PlayerName;
         }
+        
     }
 }
