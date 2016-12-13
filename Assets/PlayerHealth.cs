@@ -24,7 +24,7 @@ public class PlayerHealth : NetworkBehaviour {
 
         //anything else?
     }
-
+    [ServerCallback]
     void OnJustDied() {
         _justDied = true;
         RpcOnJustDied();
