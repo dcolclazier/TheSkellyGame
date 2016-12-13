@@ -11,6 +11,7 @@ public class SwingingTrap : MonoBehaviour {
         var player = GameManager.Instance.GetPlayer(c.gameObject);
         if (player == null) return;
 
+        Debug.Log("Swinging trap is about to kill a player");
         player.Kill(RespawnTime);
         player.SpawnPoint = _respawnPoint;
     }
