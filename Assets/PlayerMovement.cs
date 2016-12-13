@@ -56,6 +56,6 @@ public class PlayerMovement : NetworkBehaviour {
     }
 
     public void Stop() {
-        Rigidbody.velocity = Vector2.zero;
+        if(Rigidbody != null) Rigidbody.velocity = Vector2.zero;
     }
 }
