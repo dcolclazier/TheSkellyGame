@@ -201,8 +201,8 @@ public class MultiplayerManager : NetworkLobbyManager {
         SwitchPanel(MultiplayerPanel);
 
     }
-    public void SwitchPanel(RectTransform activePanel)
-    {
+    public void SwitchPanel(RectTransform activePanel) {
+        TitlePanel.gameObject.SetActive(true);
         if (_currentPanel != null) _currentPanel.gameObject.SetActive(false);
         if (activePanel != null) activePanel.gameObject.SetActive(true);
         _currentPanel = activePanel;

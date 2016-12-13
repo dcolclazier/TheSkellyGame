@@ -137,6 +137,7 @@ public class GameManager : NetworkBehaviour {
 
     public void OnReturnToMenuClick() {
         MultiplayerManager.Instance.StopClient();
+        MultiplayerManager.Instance.SwitchPanel(MultiplayerManager.Instance.MainMenuPanel);
     }
     public void FinishGame() {
         var playerFinishOrder = Players.OrderByDescending(manager => manager.gameObject.transform.position.x).ToList();
