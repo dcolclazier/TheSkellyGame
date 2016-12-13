@@ -10,6 +10,7 @@ public class GameManager : NetworkBehaviour {
     public static List<PlayerManager> Players = new List<PlayerManager>();
 
     public Text PlayerStandings;
+    public Button MainMenuButton;
     public CameraControl CameraControl;
 
     [SyncVar] public bool GameIsFinished = false;
@@ -140,6 +141,7 @@ public class GameManager : NetworkBehaviour {
         int i = 0;
         Debug.Log("Game is over!");
         PlayerStandings.enabled = true;
+        MainMenuButton.enabled = true;
         foreach (var player in playerFinishOrder) {
             string placement;
             if (++i == 1) placement = "1st place: ";
@@ -150,5 +152,10 @@ public class GameManager : NetworkBehaviour {
             PlayerStandings.text += "\n" + placement + player.PlayerName;
         }
         
+    }
+
+    public void OnMainMenuClick() {
+        MultiplayerManager.Instance.StopClient();
+        //MainMenuButton.enabled = false;
     }
 }

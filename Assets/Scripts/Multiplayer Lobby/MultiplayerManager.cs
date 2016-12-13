@@ -12,7 +12,7 @@ public class MultiplayerManager : NetworkLobbyManager {
 
     private RectTransform _currentPanel;
 
-    public readonly List<Color> Colors = new List<Color> { Color.magenta, Color.black, Color.cyan, Color.blue, Color.green, Color.yellow };
+    public readonly List<Color> Colors = new List<Color> { Color.magenta, Color.red, Color.cyan, Color.blue, Color.green, Color.yellow, Color.gray, Color.white };
     public List<Color> ColorsInUse { get { return _colorsInUse; }}
     private readonly List<Color> _colorsInUse = new List<Color>();
 
