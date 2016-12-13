@@ -11,6 +11,8 @@ public class SpikeTrap : MonoBehaviour
     void OnTriggerEnter2D(Collider2D c)
     {
         var player = GameManager.Instance.GetPlayer(c.gameObject);
+        if (player == null) return;
+
         player.Kill(RespawnTime);
         player.SpawnPoint = _respawnPoint;
     }
