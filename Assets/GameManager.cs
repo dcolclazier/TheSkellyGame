@@ -137,6 +137,7 @@ public class GameManager : NetworkBehaviour {
 
     public void OnReturnToMenuClick() {
         MultiplayerManager.Instance.StopClient();
+        if(NetworkServer.active) NetworkServer.Reset();
         MultiplayerManager.Instance.SwitchPanel(MultiplayerManager.Instance.MainMenuPanel);
     }
     public void FinishGame() {
