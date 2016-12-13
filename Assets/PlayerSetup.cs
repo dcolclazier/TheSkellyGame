@@ -57,6 +57,8 @@ public class PlayerSetup : NetworkBehaviour {
     public void CmdColorChanged(Color color) {
         PlayerColor = color;
     }
+
+    
     //public override void OnDeserialize(NetworkReader reader, bool initialState)
     //{
     //    base.OnDeserialize(reader, initialState);

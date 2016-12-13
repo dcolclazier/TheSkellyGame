@@ -10,6 +10,8 @@ public class HoleTrap : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D c) {
 
         var player = GameManager.Instance.GetPlayer(c.gameObject);
+        if (player == null) return;
+
         player.SpawnPoint = _respawnPoint;
         Debug.Log("Player spawn set to " + _respawnPoint.position);
         player.Kill(RespawnTime);

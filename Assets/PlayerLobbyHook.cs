@@ -7,8 +7,9 @@ public class PlayerLobbyHook : LobbyHook {
         if (lobbyPlayer == null) return;
 
         var lp = lobbyPlayer.GetComponent<LobbyPlayer>();
-        if(lp!= null)
+        if (lp != null) {
             GameManager.AddPlayer(gamePlayer,lp.slot,lp.PlayerColor,lp.NameInput.text,lp.playerControllerId);
-
+            
+        }
     }
 }

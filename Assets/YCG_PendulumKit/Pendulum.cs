@@ -1,35 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class Pendulum : MonoBehaviour
+public class Pendulum : NetworkBehaviour
 {
-    #region Public Variables
     public Rigidbody2D body2d;
     public float leftPushRange;
     public float rightPushRange;
     public float velocityThreshold;
-    #endregion //Public Variables
 
-    #region Private Variables
-
-    #endregion //Private Variables
-
-    // (Unity Named Methods)
-    #region Main Methods
     void Start()
     {
         body2d = GetComponent<Rigidbody2D>();
         body2d.angularVelocity = velocityThreshold;
     }
-    //Update is called by Unity every frame
     void Update()
     {
         Push();
     }
-    #endregion //Main Methods
-
-    //(Custom Named Methods)
-    #region Utility Methods 
+    [ServerCallback]
     public void Push()
     {
         if (transform.rotation.z > 0
@@ -48,10 +37,6 @@ public class Pendulum : MonoBehaviour
         }
 
     }
-    #endregion //Utility Methods
 
-    //Coroutines run parallel to other fucntions
-    #region Coroutines
 
-    #endregion //Coroutines
 }

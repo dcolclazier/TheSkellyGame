@@ -49,6 +49,7 @@ public class MultiplayerManager : NetworkLobbyManager {
     }
 
     public override void OnLobbyClientSceneChanged(NetworkConnection connection) {
+        NetworkServer.SetClientReady(connection);
         Deactivate();
     }
     public override void OnLobbyClientDisconnect(NetworkConnection conn) {
@@ -134,12 +135,20 @@ public class MultiplayerManager : NetworkLobbyManager {
             else Debug.Log("Found ready player.");
         }
 
-        if (allReady) StartCoroutine(ServerCountdownCoroutine());
+        if (allReady) {
+            PlayerCount = _lobbyPlayers.Count;
+            StartCoroutine(ServerCountdownCoroutine());
+        }
     }
+
+    public int PlayerCount { get; private set; }
+
     public IEnumerator ServerCountdownCoroutine()
     {
         float remainingTime = PrematchCountdown;
         int floorTime = Mathf.FloorToInt(remainingTime);
+
+        
 
         while (remainingTime > 0)
         {
@@ -162,11 +171,21 @@ public class MultiplayerManager : NetworkLobbyManager {
             var lobbyPlayer = player as LobbyPlayer;
             if (lobbyPlayer != null) lobbyPlayer.RpcUpdateCountdown(0);
         }
-
+        
+        NetworkServer.SetAllClientsNotReady();
         ServerChangeScene(playScene);
     }
+    //[Command]
+    //public static void CmdClientReadyToggle(uint connectionID, bool setReady)
+    //{
 
-   
+    //    //toggle ready state of a client
+    //    if (setReady)
+    //        NetworkServer.SetClientReady(NetworkServer.connections[connectionID]);
+    //    else
+    //        NetworkServer.SetClientNotReady(NetworkServer.connections[connectionID]);
+    //}
+
     public Color FirstAvailablePlayerColor()
     {
         foreach (var color in Colors)

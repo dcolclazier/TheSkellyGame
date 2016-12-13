@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : NetworkBehaviour {
@@ -21,12 +22,14 @@ public class GameManager : NetworkBehaviour {
 
     public void Awake() {
         Instance = this;
+        
     }
-
+    
     [ServerCallback]
     private void Start() {
-        _startWait = new WaitForSeconds(StartDelay);
-        _endWait = new WaitForSeconds(EndDelay);
+        //_startWait = new WaitForSeconds(StartDelay);
+        //_endWait = new WaitForSeconds(EndDelay);
+        //StartCoroutine(EnableStuff());
     }
 
     public static void AddPlayer(GameObject player, int playerNumber, Color color, string playerName, int localId) {
@@ -39,7 +42,6 @@ public class GameManager : NetworkBehaviour {
         newManager.LocalPlayerId = localId;
         newManager.Init();
 
-
         //var manager = new PlayerManager {
         //    Player = player,
         //    PlayerNumber = playerNumber,
@@ -50,6 +52,7 @@ public class GameManager : NetworkBehaviour {
         //manager.Init();
         Debug.Log("Adding player: " + newManager.PlayerName);
         Players.Add(newManager);
+        
     }
 
     public void RemovePlayer(GameObject player) {
@@ -57,16 +60,22 @@ public class GameManager : NetworkBehaviour {
 
         if (toRemove != null) Players.Remove(toRemove);
     }
+    public IEnumerator EnableStuff() {
+        //while (Players.Count < 2) yield return null; //shouldn't this be player limit?
 
-    public IEnumerator GameLoop() {
-        while (Players.Count < 2) yield return null; //shouldn't this be player limit?
+        while (Players.Count < MultiplayerManager.Instance.PlayerCount) yield return null;
+        NetworkServer.SpawnObjects();
+        Debug.Log("Enabling stuff.");
+        //var test = GameObject.FindGameObjectsWithTag("EnableMe");
+        //Debug.Log("Found " + test.Length + " things to enable.");
+        //foreach(var thing in test) thing.SetActive(true);
+        
+        //yield return new WaitForSeconds(2.0f);
 
-        yield return new WaitForSeconds(2.0f);
+        //yield return StartCoroutine(GameStarting());
 
-        yield return StartCoroutine(GameStarting());
-
-        yield return StartCoroutine(GamePlaying());
-        yield return StartCoroutine(GameEnding());
+        //yield return StartCoroutine(GamePlaying());
+        //yield return StartCoroutine(GameEnding());
     }
 
     private IEnumerator GameEnding() {
